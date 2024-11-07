@@ -1,0 +1,106 @@
+{% load static %}
+{% block meta %}
+    <title>لونیکا | مرجع دانلود  رایگان کتاب های تصویری </title>
+    <link rel="stylesheet" href={% static 'style.css' %}>
+    <script src={% static 'script.js' %}></script>
+    <link rel="icon" href={% static '/img/lunika.svg' %} type="image/svg" >
+    <meta name="author" content="amirparsa7131@gmail.com">
+
+    <meta name="keywords" content="Lunika,مانهوا,مانگا,مانها" >
+    <meta name="description" content="لونیکا مرجع دانلود انواع کتاب تصویری زا جمله مانگا ، مانهوا ، مانها، کمیک بوک و غیره با ترجمه ی فارسی و به صورت کاملا رایگان" />
+{% endblock meta %}
+<div id="search_page" style="height: 100vh;width: 100vw;background-color: #161616;z-index: 1;position: fixed;visibility: hidden;">
+    <input class="search" type="search" placeholder="در دنیای کمیک های مصور جتسجو کنید "></input>
+</div>
+<header>
+    <ul>
+        <img title="Lunika Studio" src={% static '/img/lunika.svg' %} alt="Lunika" style="width: 2.5vw;float: right;margin-top: 0.7vw;margin-right:2vw">
+        <hr style="float: right;height:2vw;margin-left: 10vw;margin-right: 2.5vw;margin-top:2vh;">
+        <nav>
+            <li onclick="" class="menu-option"><a href="/home/home.html" >صفحه اصلی </a> </li>
+
+            <li onclick="" class="menu-option">
+                <ul  onmouseleave="menu_options(1,0)" class="menu-of-option" id="manga_menu">
+                    <li>درام</li>
+                    <li>کمدی</li>
+                    <li>عاشقانه</li>
+                    <li>اکشن</li>
+                    <li>ماجراجویانه</li>
+                </ul>
+                <i class="angle-down" onmouseenter="menu_options(0,0)"></i>
+                <a href="#news">مانگا </a>
+            </li>
+
+            <li onclick="" class="menu-option">
+                <ul onmouseleave="menu_options(1,1)" class="menu-of-option" id="manhwa_menu">
+                    <li>درام</li>
+                    <li>کمدی</li>
+                    <li>عاشقانه</li>
+                    <li>اکشن</li>
+                    <li>ماجراجویانه</li>
+                </ul>
+                <i class="angle-down" onmouseenter="menu_options(0,1)" ></i>
+                <a href="#contact">مانهوا</a>
+            </li>
+            
+            <li onclick="" class="menu-option">
+                <ul onmouseleave="menu_options(1,2)" class="menu-of-option" id="manha_menu">
+                    <li>درام</li>
+                    <li>کمدی</li>
+                    <li>عاشقانه</li>
+                    <li>اکشن</li>
+                    <li>ماجراجویانه</li>
+                </ul>
+                <i class="angle-down" onmouseenter="menu_options(0,2)"></i>
+                <a href="#contact">مانها</a>
+            </li>
+            <li onclick="" class="menu-option"><a href="#weblog" >وبلاگ</a>  </li>
+            <li onclick="" class="menu-option"><a href="#contact">همکاری با ما</a></li>
+        </nav>
+        <i class="profile-icon" style="margin: 0px;"></i>
+        <div class="search-bar"><i id="search-icon" onclick="search(1)"></i></i></div>
+    </ul>
+</header>
+{% block content %}{% endblock content %}
+<footer>
+    <div style="height:15vw;width: 30vw;float: right;margin-bottom: 0px;">
+        <h4 style="font-size: 2vw;float: right;margin-top: 0.75vw;margin-right: 1vw;color: #f5f5f5e6;margin-bottom: 0px;">درباره ی ما</h4>
+        <br \><br \><br \>
+        <p style="font-size: 1vw;color: #ececece6;text-align: right; margin-right: 1vw;width: 30vw;float: right;">سلام تیم ما یک تیم تازه تاسیس هست که هدفش خشنود کردن شما و پخش این مانگا ها ، مانهوا و مانهایی که شما می خواهید برای شما و استفاده راحت و دانلود شما است تا بتوانید از خواندن آنها لذت ببرید</p>
+    </div>
+    <div style="height: 15vw;width: 30vw;float: right;">
+        <div style="height: 15vw;width: 100%;float: right;text-align: center;">
+            <ul>
+                <h4 class="footer-menu-title">دسترسی سریع</h4>
+                <hr style="width: 5vw;border-color: #ff7b00;">
+                <li class="footer-menu">مانگا</li>
+                <li class="footer-menu">مانهوا</li>
+                <li class="footer-menu">مانها</li>
+            </ul>
+        </div>
+    </div>
+    <div style="height: 15vw;width: 20vw;">
+        <h4 style="text-align:center;color: #f5f5f5e6; margin-top: 1vw;">ارتباط با ما</h4>
+        <div style="height: 8vw;margin-top:3vw;">
+             <address style="color: rgb(189, 189, 189);font-style: normal;font-size: 0.9vw;height:1vw">
+                <ul style="list-style-type: none;margin:0px,height:10vw">
+                    <li title="work number">
+                        <h4>Phone : 44 42 82 24</h4>
+                    </li>
+                    <li title="email addres">
+                        <h4>Email : vahid.fd.developer@gmail.com</h4>
+                    </li>
+                    <li title="social media">
+                        <nav style="
+                            display: flex;justify-content: space-evenly;height: 5vw;
+                            align-items: center;">
+                            <img class="logo" src={% static 'img/sm-logo/instagram.svg' %} alt="instagram" title="instagram">
+                            <img class="logo" src={% static 'img/sm-logo/telegram.svg' %} alt="telegram" title="telegram">
+                            <img class="logo" src={% static 'img/sm-logo/facebook.svg' %} alt="facebook" title="facebook">
+                        </nav>
+                    </li>
+                </ul>
+             </address>
+        </div>
+    </div>
+</footer>

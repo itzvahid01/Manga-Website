@@ -1,0 +1,343 @@
+@font-face {
+    font-family: iransansdn;
+    src: url('/iransansdn.ttf');
+}
+.logo{
+    margin: 0px;
+    padding: 0.5vw;
+    background-color: #161616;
+    width: 1.5vw;
+    height: 1.5vw;
+    transition: 0.5s all;
+    border: 0.1vw solid #252525;
+    animation-name: hoverLogo;
+}
+.logo:hover{
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #313131;
+}
+.card {
+    z-index: 0;
+    display: flex;
+    transition: all 0.5s;
+    width: 11vw;
+    height: 16.5vw;
+    background-color: #808080;
+    filter: contrast(1.02);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 7px;
+    transition: all 0.7s;
+    border: 2px solid black;
+}
+
+.card:hover {
+    transform: translateY(-1vw);
+    border-radius: 0px;
+    filter: contrast(1.2);
+    cursor: pointer;
+}
+.anime-name {
+    visibility: hidden;
+    color: rgb(255, 255, 255);
+    transition: 0.15s;
+}
+.description_card{
+    display: inline-block;
+    background-color: #313131;
+    width: 11vw;
+    height: 0vh;
+    margin-top: 17vw;
+    transition: 0.7s all;
+
+}
+.card:hover .description_card {
+    border: 2px solid #313131;
+    height: 10vh;
+}
+.card:hover .anime-name {
+    visibility: visible;
+}
+.tags{
+    display: flex;
+    width: 11vw;
+    height: 0vw;
+}
+.card:hover  .tags{
+    height: 16.5vw;
+}
+.tag{
+    font-size: 0.8vw;
+    border: 0.1vw solid rgba(141, 141, 141,0.1);
+    padding: 0.5vw;
+    color: #8d8d8d;
+    height: fit-content;
+    visibility: hidden;
+    transition: 0.2s;
+}
+.card:hover  .tag{
+    visibility: visible;
+}
+.banner {
+    background-color: #313131;
+    background-image: url("/home/img/anato-finnstark-berserk.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 10px 5px black;
+    display: block;
+    height:75vh;
+
+}
+.d-m {
+    display: flex;
+    margin: 10px;
+    color: #8d8d8d;
+    border: 1px solid #8d8d8d;
+    width: 10vw;
+    height: 8vh;
+    border-radius: 5px;
+    font-size: 1.3em;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    animation-duration: 0.5s;
+}
+.d-m:hover {
+    background-color: greenyellow;
+}
+.menu-of-option{
+    position: absolute;
+    float: right;
+    display: none;
+    flex-direction: column;
+    top: 6vh;
+    left: -5vw;
+    width: 10vw;
+    height: auto;
+    padding: 0px;
+    border-top: 2px solid orange;
+    background-color: #252525;
+    backdrop-filter: blur(10px);
+    color: rgb(255, 255, 255);
+}
+.menu-of-option li {
+    font-size: 0.85em;
+    cursor: pointer;
+    float: right;
+    text-align: end;
+    margin-top: 10px;
+    padding-right: 5px;
+    transition: 0.2s;
+}
+.menu-of-option li:hover{
+    transform: scale(1.05);
+}
+.test {
+    background-color: #313131;
+    border-radius: 5px;
+}
+body {
+    background-color: #161616;
+    font-family: iransansdn ;
+    margin: 0;
+    padding: 0;
+}
+header {
+    z-index: 1;
+}
+header ul {
+    border-radius: 0.5vw;
+    border: 0.15vw solid rgba(22, 22, 22,0.8);
+    margin: 0.5vw;  
+    z-index: 1;
+    position: fixed;
+    width: 95vw;
+    height: 4vw;
+    list-style-type: none;
+    background-color: rgba(22, 22, 22,0.5);
+    backdrop-filter: blur(5px);
+}
+header nav{
+    width: 40vw;
+    float: right;
+}
+.menu-option { 
+    position: relative;
+    display: flex;
+    margin-top: 1vw;
+    height: 2vw;
+    padding-right: 10;
+    margin-left: 1vw;
+    float: right;
+    font-size: 1vw;
+    padding: 0.1vw;
+    user-select: none;
+}
+.menu-option a {
+    color: rgb(255, 255, 255);
+    text-align: right;
+    text-decoration: none;
+}
+.menu-option:hover {
+    background-color: #35353580;
+    border-radius: 0.5vw;
+}
+.menu-option::after {
+    content: \2039;
+}
+.angle-down {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    transform: rotate(90deg);
+    background-image: url("/img/angle_down.svg");
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-left: 5px;
+    margin-top: 10px;
+    transition: all 0.5s;
+    border-radius: 50%;
+}
+.angle-down:hover {
+    transform: rotate(0deg);
+}
+
+
+.profile-icon {
+    float: left;
+    width: 45px;
+    height: 45px;
+    background-image: url("/img/profile.svg");
+    background-repeat: no-repeat;
+    background-size: 45px;
+    margin-top: 5px;
+    transition: all 0.5s;
+    border-radius: 50%;
+}
+.profile-icon:hover{
+    cursor: pointer;
+    transform: scale(1.07);
+}
+.search-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    margin-right: 10vw;
+    background-color: #161616;
+    float: right;
+    height: 6vh;
+}
+#search-icon {
+    margin: 1vh 0px 0px 10px;
+    float: right;
+    width: 3vh;
+    height: 3vh;   
+    background-image: url("/img/search.svg");
+    background-repeat: no-repeat;
+    background-size: 40px;
+    border: 1px solid #272727;
+    background-color: #1f1f1f;
+    transition: 0.5s all;
+}
+#search-icon:hover{
+    background-color: #252525;
+    border: 1px solid #272727;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.search {
+    text-align: end;
+    z-index: 1;
+    margin-top: 24vh;
+    margin-left: 35vw;
+    width: 30vw;
+    height: 4vh;
+    border-radius: 10px;
+    border: 0px;
+    background-color: #252525;
+}
+
+.search:focus{
+    outline: none;
+    color: white;
+}
+
+.category {
+    display: flex;
+    justify-content: space-around;
+    margin: 0px 2vw;
+}
+
+.category-title {
+    color: white;
+    text-align: end;
+    font-size: 1.5em;
+    margin: 0px 2vw 0px 2vh;
+}
+.see {
+    display: inline-block;
+    color: #dadada;
+    font-size: 0.8em;
+    margin: 0px 0px 10px 30px;
+    text-decoration: none;
+    border-bottom: 1px solid #161616;
+    transition: 0.1s;
+}
+.see:hover{
+    border-bottom: 1px solid white;
+}
+.see::before{
+    content: '\2039';
+    height: 20px;
+    width: 20px;
+    background-repeat: no-repeat;
+    background-size: 10px;
+
+}
+
+
+section {
+    margin-top: 10vh;
+}
+
+
+
+footer {
+    height: 15vw;
+    margin-top: 15vh;
+    background-color: rgba(16, 16, 16,0.7);
+}
+
+h1 {
+    color: white;
+    text-align: end;
+}
+h2 {
+    color: white;
+    text-align: end;
+}
+h4{
+    margin: 0px;
+    margin-top: 1vw;
+}
+.footer-menu {
+    font-size: 1vw;
+    cursor: pointer;
+    color: white;
+    list-style-position: inside;
+    list-style-type: none;
+    margin-top: 1vw;
+    transition: 0.5s all;
+}
+.footer-menu-title {
+    font-size: 1.5vw;
+    cursor: pointer;
+    color: white;
+    list-style-type: none;
+    margin-top: 1vw;
+}
+.footer-menu:hover{
+    margin-right: 1vw;
+}

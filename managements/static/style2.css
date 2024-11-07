@@ -1,0 +1,36 @@
+body{
+    background-color: #161616;
+    margin: 0px;
+}
+.anime {
+    text-align: center;
+    border: 0.1vw solid rgb(37, 37, 37);
+    width: fit-content;
+}
+label{
+    font-size: 1.3vw;
+    font-weight: 700;
+    margin-bottom: 0.2vw;
+    display: block;
+    color: rgb(226, 226, 226);
+}
+input{
+    font-size: 1vw;
+    padding: 0.2vw;
+    border: none;
+    color: rgb(206, 206, 206);
+    background-color: rgb(41, 41, 41);
+    margin-bottom: 1vw;
+    transition: 0.5s;
+}
+input:focus{
+    color: white;
+    outline: none;
+    background-color: rgba(160, 160, 160, 0.1);
+    border-bottom: 0.1vw solid rgba(160, 160, 160, 1);
+}
+.submit:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #1f1f1f;
+}

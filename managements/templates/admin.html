@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لونیکا | پنل ادمینی</title>
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+</head>
+<body>
+    {% csrf_token %}<form class="anime" action="" method="post">{{ anime_form.as_div }}<input type="submit" class="submit"></form>
+    <div class="season"></div>
+    <div class="episode"></div>
+</body>
+</html>
