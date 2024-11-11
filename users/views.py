@@ -9,3 +9,7 @@ def index(request):
     tags = TagList.objects.all()
     context = {"imdb_animes" : most_imdb_animes,"click_animes":most_clicked_animes,"lasted_animes" : lasted_animes,"tags": tags}
     return render(request,'user/home.html',context=context)
+def anime_page(request,name):
+    info = Anime.objects.get(title=name)
+    context = {"anime" : info}
+    return render(request,"user/apage.html",context)

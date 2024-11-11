@@ -1,0 +1,40 @@
+{% extends "deafult.html" %}
+{% load static %}
+{% block content %}
+    <div  class="page_banner_anime" style=" background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0),rgba(0, 0, 0, 0.8)),url('../media/{{ anime.banner }}');">
+        <h1 id="t" class="anime_title_banner">{{ anime.title }}</h1>
+    </div>
+    <div style="width:96vw;display:inline-block;">
+        <div style="
+        border-radius: 0.5vw;
+        box-shadow: 0px 0px 5px 1px black;
+        width: 15vw;
+        height: 22.5vw;
+        float: right;
+        margin-right: 2vw;
+        margin-top: 5vw;
+        ">
+        <img src="../media/{{ anime.title_img }}" style="    user-select: none;position: relative;width: 100%;height: 100%;border-radius: 0.5vw;"></div>
+        <div class="test" style="width: 75vw;height: 10vw;margin-right: 2vw;margin-top: 5vw;margin-left: 4vw;float: right;">
+            <p style="user-select: none;font-size: 1vw;text-align: end;color: rgb(114, 114, 114); margin-right: 0.1vw;margin-left: 0.1vw;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;display:">خلاصه : {{ anime.description}}</p>
+        </div>
+        <div class="test" style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        width: 75vw;
+        margin-top: 5vh;
+        margin-right: 2vw;
+        float: right;
+        min-height: 200px;
+        ">
+        <div class="d-m">چپتر 1</div><div class="d-m">چپتر 2</div>
+        <div class="d-m">چپتر 3</div><div class="d-m">چپتر 4</div>
+        <div class="d-m">چپتر 5</div><div class="d-m">چپتر 6</div>
+        <div class="d-m">چپتر 7</div><div class="d-m">چپتر 8</div>
+        <div class="d-m">چپتر 9</div>
+        </div>
+        </div>
+    </div>
+{% endblock content %}

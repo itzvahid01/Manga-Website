@@ -7,9 +7,10 @@
         <h4 class="category-title">جدید ها</h4><a class="see" href="/page/page.html">مشاهده همه</a>
         <div class="category">
             {% for a1 in lasted_animes %}
-                <div class="card" style="background-image: url('media/{{ a1.title_img }}')">
+            <a href="/{{ a1 }}">
+                <div class="card" style="background-image: linear-gradient(to bottom,rgba(151, 150, 148, 0.1),rgba(0, 0, 0, 0.8)),url('media/{{ a1.title_img }}')">
+                    <div class="anime-name">{{ a1 }}</div>
                     <div class="description_card">
-                        <div class="anime-name">{{ a1 }}</div>
                         <div class="tags">
                         {% for tag in tags %}
                             {% if tag.anime_id.pk == a1.pk %}
@@ -19,6 +20,7 @@
                         </div>
                     </div>
                 </div>
+            </a>
             {% endfor %}
         </div>
     </section>
@@ -26,9 +28,10 @@
         <h4 class="category-title"> محبوب ها</h4><a class="see" href="#best">مشاهده همه</a>
         <div class="category">
             {% for a2 in click_animes %}
-                <div class="card" style="background-image: url('media/{{ a2.title_img }}')">
+            <a href="/{{ a2 }}">
+                <div class="card" style="background-image: linear-gradient(to bottom,rgba(151, 150, 148, 0.1),rgba(0, 0, 0, 0.8)),url('media/{{ a2.title_img }}');">
+                    <div class="anime-name">{{ a2 }}</div>
                     <div class="description_card">
-                        <div class="anime-name">{{ a2 }}</div>
                         <div class="tags">
                         {% for tag in tags %}
                             {% if tag.anime_id.pk == a2.pk %}
@@ -38,6 +41,7 @@
                         </div>
                     </div>
                 </div>
+            </a>
             {% endfor %}
         </div>
     </section>
@@ -45,9 +49,10 @@
         <h4 class="category-title">بهترین ها</h4><a class="see" href="#new">مشاهده همه</a>
         <div class="category">
             {% for a3 in imdb_animes %}
-                <div class="card" style="background-image: url('media/{{ a3.title_img }}')">
+            <a href="/{{ a3 }}">
+                <div class="card" style="background-image: linear-gradient(to bottom,rgba(151, 150, 148, 0.1),rgba(0, 0, 0, 0.8)),url('media/{{ a3.title_img }}')">
+                    <div class="anime-name">{{ a3 }}</div>
                     <div class="description_card">
-                        <div class="anime-name">{{ a3 }}</div>
                         <div class="tags">
                         {% for tag in tags %}
                             {% if tag.anime_id.pk == a3.pk %}
@@ -57,6 +62,7 @@
                         </div>
                     </div>
                 </div>
+            </a>
             {% endfor %}
         </div>
     </section>
