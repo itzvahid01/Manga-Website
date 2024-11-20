@@ -11,5 +11,7 @@ def index(request):
     return render(request,'user/home.html',context=context)
 def anime_page(request,name):
     info = Anime.objects.get(title=name)
-    context = {"anime" : info}
+    seasons = Season.objects.filter(anime=info.pk)
+    episode = Episode.objects.filter(anime=info.pk)
+    context = {"anime" : info,"seasons":seasons,"episodes":episode}
     return render(request,"user/apage.html",context)

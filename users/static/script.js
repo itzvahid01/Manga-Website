@@ -8,7 +8,12 @@ function menu() {
                 document.getElementById("search-filter").style.visibility = "hidden";
         }
 }
-
+function show_season(number) {
+        for (let index = 1; index < document.getElementsByClassName("season").length + 1; index++) {
+                document.getElementById(String(index)).style.visibility = "hidden";
+        }
+        document.getElementById(number).style.visibility = "visible";
+}
 // window.onscroll = function() {myFunction()};
 function search(n){
         if(document.getElementById("search_page").style.visibility == "hidden") {

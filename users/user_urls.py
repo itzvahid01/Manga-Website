@@ -3,7 +3,7 @@ from .views import *
 
 urlpatterns = [
    #------------------------ main ----------------------
-    path("", index, name="index"),
+    path("", index, name="home"),
     path("search/",index,name="search"), 
     path("about_us/",index,name="about_us"),
     #----------------------- film --------------------

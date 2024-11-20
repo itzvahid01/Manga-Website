@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'style2.css' %}">
 </head>
 <body>
-    {% csrf_token %}<form class="anime" action="" method="post">{{ anime_form.as_div }}<input type="submit" class="submit"></form>
+    <form enctype="multipart/form-data" class="anime" action="" method="POST" id="anime_form" novalidate>{% csrf_token %}{{ anime_form.as_div }}<input type="submit" class="submit"></form>
     <div class="season"></div>
     <div class="episode"></div>
 </body>

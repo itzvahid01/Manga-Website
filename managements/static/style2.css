@@ -6,6 +6,7 @@ body{
     text-align: center;
     border: 0.1vw solid rgb(37, 37, 37);
     width: fit-content;
+    unicode-bidi: isolate;
 }
 label{
     font-size: 1.3vw;
