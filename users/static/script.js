@@ -11,8 +11,10 @@ function menu() {
 function show_season(number) {
         for (let index = 1; index < document.getElementsByClassName("season").length + 1; index++) {
                 document.getElementById(String(index)).style.visibility = "hidden";
+                document.getElementById("season-title-"+String(index)).style.backgroundColor="#303030";
         }
         document.getElementById(number).style.visibility = "visible";
+        document.getElementById("season-title-"+String(number)).style.backgroundColor="#212121";
 }
 // window.onscroll = function() {myFunction()};
 function search(n){

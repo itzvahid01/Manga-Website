@@ -12,7 +12,7 @@
         <div class="download">
             <div class="season-title-list">
             {% for season in seasons %}
-                <div class="season-title" onclick="show_season({{ season.number }})">{{ season.number }}</div>
+                <div class="season-title" id="season-title-{{ season.number }}" onclick="show_season({{ season.number }})">{{ season.number }}</div>
             {% endfor %}
             </div>
             <div class="season-list">
@@ -21,9 +21,9 @@
                     <div class="episodes">
                         {% for episode in episodes %}
                             {% if episode.season.number == season.number %}
-                            <div class='d-m'> 
+                            <a class='d-m' href="{% url 'home'%}{{ anime.title }}/{{ season.number }}/{{ episode.number }}"> 
                                 {{ episode.number }}
-                            </div>
+                            </a>
                             {% endif %}
                         {% endfor %}
                     </div>

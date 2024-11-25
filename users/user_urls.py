@@ -8,7 +8,7 @@ urlpatterns = [
     path("about_us/",index,name="about_us"),
     #----------------------- film --------------------
     path("<str:name>/", anime_page, name="detail"),
-    path("<str:name>/<int:season>/<int:episode>", index, name="download"),
+    path("<str:anime_name>/<str:season_number>/<str:episode_number>/",download,name="download"),
     # ----------------------- profile ------------------------
     path("profile/", index, name="profile"),
 ]

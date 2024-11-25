@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.urls import path,include
 from managements import admin_urls
 from users import user_urls
+from apis import api_urls
 
 #
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/',include('apis.api_urls')),
     path('management/',include("managements.admin_urls")),
     path('',include('users.user_urls'))
 ] + static(settings.MEDIA_URL,document_root= settings.MEDIA_ROOT)

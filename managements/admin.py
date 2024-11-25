@@ -5,4 +5,5 @@ admin.site.register(TagList)
 admin.site.register(Anime)
 admin.site.register(Season)
 admin.site.register(Episode)
+admin.site.register(Banner)
 # Register your models here.

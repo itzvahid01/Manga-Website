@@ -12,7 +12,6 @@ class Anime(m.Model):
     imdb = m.IntegerField(default=0,null=True,blank=True)
     def __str__(self):
         return self.title
-    
 class Tag(m.Model):
     title = m.CharField(max_length=255)
     def __str__(self):
@@ -34,3 +33,8 @@ class Episode(m.Model):
     media = m.FileField(null=True,blank=True)
     def __str__(self):
         return f"Episode : {self.number} | {self.season} | {self.season.number }"
+class Banner(m.Model):
+    anime = m.ForeignKey(Anime,on_delete=m.CASCADE,related_name='ad',null=True,blank=True)
+    img = m.ImageField(null=True,blank=True)
+    def __str__(self):
+        return f"Anime | {self.anime}"
