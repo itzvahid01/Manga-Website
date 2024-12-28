@@ -1,0 +1,12 @@
+{% extends "deafult.html" %}
+{% load static %}
+{% block content %}
+    <div class="card_weblog_box">
+        {% for post in posts %}
+            <div class="card_weblog" >
+                <img class="title_img_weblog" src="../../media/{{ post.title_img }}">
+                <h4 class="title_weblog_card" ><a href={% url 'weblog_page' anime_name=post.anime title=post.title %}>{{ post.title }}</a></h4>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

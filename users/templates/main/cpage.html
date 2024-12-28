@@ -1,0 +1,22 @@
+{% extends "deafult.html" %}
+{% load static %}
+{% block content %}
+    <div class="cards_box">
+        {% for anime in animes %}
+        <a href="{% url 'home'%}{{ anime }}">
+            <div class="card" style="background-image: linear-gradient(to bottom,rgba(151, 150, 148, 0.1),rgba(0, 0, 0, 0.8)),url('../../media/{{ anime.title_img }}');">
+                <div class="anime-name">{{ anime }}</div>
+                <div class="description_card">
+                    <div class="tags">
+                    {% for tag in tags %}
+                        {% if tag.anime_id.pk == anime.pk %}
+                            <div class="tag">{{ tag.tags }}</div>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+{% endblock content %}

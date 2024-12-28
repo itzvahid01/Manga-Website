@@ -1,3 +1,6 @@
+window.addEventListener("scroll", bringmenu);
+
+
 function menu() {
         if (document.getElementById("search-input").style.visibility == "hidden") {
                 document.getElementById("search-input").style.visibility = "visible";
@@ -43,34 +46,4 @@ function myFunction() {
 function upclick() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
-}
-function menu_options(n,w) {
-        if (w==0) {
-                document.getElementById('manga_menu').style.display = "flex";
-                document.getElementById('manga_menu').style.display = "visibility";
-                if (n==0){
-                        document.getElementById('manga_menu').style.display = "flex";
-                }
-                else {
-                        document.getElementById('manga_menu').style.display = "none";
-                }
-        }else if (w==1) {
-                document.getElementById('manhwa_menu').style.display = "flex";
-                document.getElementById('manhwa_menu').style.display = "visibility";
-                if (n==0){
-                        document.getElementById('manhwa_menu').style.display = "flex";
-                }
-                else {
-                        document.getElementById('manhwa_menu').style.display = "none";
-                }
-        } else if (w==2) {
-                document.getElementById('manha_menu').style.display = "flex";
-                document.getElementById('manha_menu').style.display = "visibility";
-                if (n==0){
-                        document.getElementById('manha_menu').style.display = "flex";
-                }
-                else {
-                        document.getElementById('manha_menu').style.display = "none";
-                }
-        }
 }

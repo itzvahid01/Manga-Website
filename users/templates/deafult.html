@@ -9,24 +9,24 @@
     <meta name="keywords" content="Lunika,مانهوا,مانگا,مانها" >
     <meta name="description" content="لونیکا مرجع دانلود انواع کتاب تصویری زا جمله مانگا ، مانهوا ، مانها، کمیک بوک و غیره با ترجمه ی فارسی و به صورت کاملا رایگان" />
 {% endblock meta %}
-<div id="search_page" style="height: 100vh;width: 100vw;background-color: #161616;z-index: 1;position: fixed;visibility: hidden;">
+<div style="height:5vw;width:100vw;z-index: 0;" ></div>
+<div id="search_page" >
     <input class="search" type="search" placeholder="در دنیای کمیک های مصور جتسجو کنید "></input>
 </div>
-<header>
-    <ul>
+<header >
+    <ul id="menu">
         <img title="Lunika Studio" src={% static '/img/lunika.svg' %} alt="Lunika" style="width: 2.5vw;float: right;margin-top: 0.7vw;margin-right:2vw">
         <hr style="float: right;height:2vw;margin-left: 10vw;margin-right: 2.5vw;margin-top:2vh;">
         <nav>
             <li onclick="" class="menu-option"><a href={% url "home" %} >صفحه اصلی </a> </li>
-
             <li onclick="" class="menu-option">
-                <ul  onmouseleave="menu_options(1,0)" class="menu-of-option" id="manga_menu">
-                    <li>درام</li>
-                    <li>کمدی</li>
-                    <li>عاشقانه</li>
-                    <li>اکشن</li>
-                    <li>ماجراجویانه</li>
-                </ul>
+            <ul  onmouseleave="menu_options(1,0)" class="menu-of-option" id="manga_menu">
+                <li>درام</li>
+                <li>کمدی</li>
+                <li>عاشقانه</li>
+                <li>اکشن</li>
+                <li>ماجراجویانه</li>
+            </ul>
                 <i class="angle-down" onmouseenter="menu_options(0,0)"></i>
                 <a href="#news">مانگا </a>
             </li>
@@ -54,7 +54,7 @@
                 <i class="angle-down" onmouseenter="menu_options(0,2)"></i>
                 <a href="#contact">مانها</a>
             </li>
-            <li onclick="" class="menu-option"><a href="#weblog" >وبلاگ</a>  </li>
+            <li onclick="" class="menu-option"><a href={% url "weblog_main" %} >وبلاگ</a>  </li>
             <li onclick="" class="menu-option"><a href="#contact">همکاری با ما</a></li>
         </nav>
         <i class="profile-icon" style="margin: 0px;"></i>
