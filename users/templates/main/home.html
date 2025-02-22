@@ -1,18 +1,19 @@
 {% extends "deafult.html" %}
 {% load static %}
 {% block content %}
-    <div class="banner" style="background-image: url('media/{{ lasted_banner.img }}');"><a href='{% url "detail" name=lasted_banner.anime %}' class="button_banner">بخوانید</a></div>
+    <div class="banner" style="background-image: url('/media/{{ lasted_banner.img }}');"><a href='{% url "detail" name=lasted_banner.anime %}' class="button_banner">بخوانید</a></div>
+    {% for item in  cat_shows %}
     <section>
-        <h4 class="category-title">جدید ها</h4><a class="see" href="{% url 'cats_anime' cat='news' %}">مشاهده همه</a>
+        <h4 class="category-title">{{ item.title }}</h4><a class="see" href="{% url 'categury' cat=item.address %}">مشاهده همه</a>
         <div class="category">
-            {% for a1 in lasted_animes %}
-            <a href="{% url 'home'%}{{ a1 }}">
-                <div class="card" style="background-image: linear-gradient(to bottom,rgba(151, 150, 148, 0.1),rgba(0, 0, 0, 0.8)),url('media/{{ a1.title_img }}')">
-                    <div class="anime-name">{{ a1 }}</div>
+            {% for a in item.data %}
+            <a href={% url "detail" name=a %}>
+                <div class="card" style="background-image: linear-gradient(to bottom,rgba(151, 150, 148, 0.1),rgba(0, 0, 0, 0.8)),url('/media/{{ a.title_img }}')">
+                    <div class="anime-name">{{ a }}</div>
                     <div class="description_card">
                         <div class="tags">
                         {% for tag in tags %}
-                            {% if tag.anime_id.pk == a1.pk %}
+                            {% if tag.anime_id.pk == a.pk %}
                                 <div class="tag">{{ tag.tags }}</div>
                             {% endif %}
                         {% endfor %}
@@ -23,46 +24,5 @@
             {% endfor %}
         </div>
     </section>
-    <section>
-        <h4 class="category-title"> محبوب ها</h4><a class="see" href="{% url 'cats_anime' cat='populer' %}">مشاهده همه</a>
-        <div class="category">
-            {% for a2 in click_animes %}
-            <a href="{% url 'home'%}{{ a2 }}">
-                <div class="card" style="background-image: linear-gradient(to bottom,rgba(151, 150, 148, 0.1),rgba(0, 0, 0, 0.8)),url('media/{{ a2.title_img }}');">
-                    <div class="anime-name">{{ a2 }}</div>
-                    <div class="description_card">
-                        <div class="tags">
-                        {% for tag in tags %}
-                            {% if tag.anime_id.pk == a2.pk %}
-                                <div class="tag">{{ tag.tags }}</div>
-                            {% endif %}
-                        {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </a>
-            {% endfor %}
-        </div>
-    </section>
-    <section>
-        <h4 class="category-title">بهترین ها</h4><a class="see" href="{% url 'cats_anime' cat='best' %}">مشاهده همه</a>
-        <div class="category">
-            {% for a3 in imdb_animes %}
-            <a href="{% url 'home'%}{{ a3 }}">
-                <div class="card" style="background-image: linear-gradient(to bottom,rgba(151, 150, 148, 0.1),rgba(0, 0, 0, 0.8)),url('media/{{ a3.title_img }}')">
-                    <div class="anime-name">{{ a3 }}</div>
-                    <div class="description_card">
-                        <div class="tags">
-                        {% for tag in tags %}
-                            {% if tag.anime_id.pk == a3.pk %}
-                                <div class="tag">{{ tag.tags }}</div>
-                            {% endif %}
-                        {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </a>
-            {% endfor %}
-        </div>
-    </section>
+    {% endfor %}
 {% endblock content %}

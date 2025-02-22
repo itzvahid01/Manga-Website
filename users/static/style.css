@@ -29,7 +29,7 @@
     filter: contrast(1.02);
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 7px;
+    border-radius: 0.25vw;
     transition: all 0.7s;
     border: 0.1vw solid #242424;
 }
@@ -97,17 +97,17 @@
     background-color: #313131;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 0px 0px 10px 5px black;
+    box-shadow: 0px 0px 1vw 0.1vw black;
     height:40vw;
 }
 .button_banner{
-    color: rgb(184, 184, 184);
+    color: rgb(211, 211, 211);
     font: 1vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 124, 6, 0.6);
-    border: 0.2vw solid rgba(0, 128, 0,0.5);
+    background-color: rgba(126, 126, 126, 0.6);
+    border: 0.15vw solid rgba(44, 44, 44, 0.5);
     margin: 2vw;
     padding: 1vw;
     width: 6vw;
@@ -117,8 +117,8 @@
 .button_banner:hover{
     color: white;
     border-radius: 1vw;
-    background-color: rgba(0, 212, 11, 0.555);
-    border: 0.2vw solid rgba(0, 128, 0,1);
+    background-color: rgba(61, 61, 61, 0.5);
+    border: 0.15vw solid rgba(44, 44, 44, 0.5);
 }
 #episodes{
     display: flex;
@@ -132,10 +132,10 @@
     min-height: 15vw;
 }
 .b-img {
-    border-radius: 0.5vw;
+    border-radius: 0.25vw;
     box-shadow: 0px 0px 5px 1px black;
-    width: 17vw;
-    height: 22.5vw;
+    width: 16vw;
+    height: 24vw;
     float: right;
     margin-top: 5vw;
 }
@@ -236,6 +236,31 @@ header nav{
 }
 .menu-of-option li:hover{
     transform: scale(1.05);
+}
+.auth{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 3.75vw;
+    height: 3.75vw;
+    background-repeat: no-repeat;
+    background-size: 3.75vw;
+    margin-top: 0.125vw;
+    transition: all 0.5s;
+    margin-right: 1vw;
+}
+
+.auth a{
+    color: rgb(209, 209, 209);
+    transition: all 0.5s;
+}
+.auth:hover a{
+    color: rgb(255, 255, 255);
+}
+.auth:hover{
+    cursor: pointer;
+    border-radius: 0.5vw;
 }
 .profile-icon {
     float: left;
@@ -410,7 +435,7 @@ a{
     height:40vw;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 0px 0px 10px 2px black;
+    box-shadow: 0px 0px 1vw 0.1vw black;
 }
 .anime_title_banner{
     display: flex;
@@ -615,12 +640,14 @@ a{
     width: 17vw;
     height: 17vw;
     background-color: #313131;
+    border: 0.2vw solid #202020;
     border-radius: 1vw;
     transition: 0.5s;
 }
 .post:hover{
     cursor: pointer;
     background-color: #363636;
+    border: 0.2vw solid #272727;
 }
 .post-image{
     margin-top: 1vw;

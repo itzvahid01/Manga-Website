@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import *
+admin.site.register(Menu)
+admin.site.register(MenuOption)
 admin.site.register(Tag)
 admin.site.register(TagList)
 admin.site.register(Anime)

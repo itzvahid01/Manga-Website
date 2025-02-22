@@ -18,47 +18,31 @@
         <img title="Lunika Studio" src={% static '/img/lunika.svg' %} alt="Lunika" style="width: 2.5vw;float: right;margin-top: 0.7vw;margin-right:2vw">
         <hr style="float: right;height:2vw;margin-left: 10vw;margin-right: 2.5vw;margin-top:2vh;">
         <nav>
-            <li onclick="" class="menu-option"><a href={% url "home" %} >صفحه اصلی </a> </li>
-            <li onclick="" class="menu-option">
-            <ul  onmouseleave="menu_options(1,0)" class="menu-of-option" id="manga_menu">
-                <li>درام</li>
-                <li>کمدی</li>
-                <li>عاشقانه</li>
-                <li>اکشن</li>
-                <li>ماجراجویانه</li>
-            </ul>
-                <i class="angle-down" onmouseenter="menu_options(0,0)"></i>
-                <a href="#news">مانگا </a>
-            </li>
-
-            <li onclick="" class="menu-option">
-                <ul onmouseleave="menu_options(1,1)" class="menu-of-option" id="manhwa_menu">
-                    <li>درام</li>
-                    <li>کمدی</li>
-                    <li>عاشقانه</li>
-                    <li>اکشن</li>
-                    <li>ماجراجویانه</li>
-                </ul>
-                <i class="angle-down" onmouseenter="menu_options(0,1)" ></i>
-                <a href="#contact">مانهوا</a>
-            </li>
-            
-            <li onclick="" class="menu-option">
-                <ul onmouseleave="menu_options(1,2)" class="menu-of-option" id="manha_menu">
-                    <li>درام</li>
-                    <li>کمدی</li>
-                    <li>عاشقانه</li>
-                    <li>اکشن</li>
-                    <li>ماجراجویانه</li>
-                </ul>
-                <i class="angle-down" onmouseenter="menu_options(0,2)"></i>
-                <a href="#contact">مانها</a>
-            </li>
+            <li onclick="" class="menu-option"><a href="{% url 'home' %}" >صفحه اصلی </a> </li>
+            {% for menu in menus %}
+                <li onclick="" class="menu-option">
+                    <ul  onmouseleave="menu_options(1,0)" class="menu-of-option" id="manga_menu">
+                    {% for mo in menus_options %}
+                        {% if mo.menu.pk == menu.pk %}
+                            <a href="{% url menu.family %}{{ menu.address }}/?tag={{ mo.title }}"><li>{{mo.title}}</li></a>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                    <i class="angle-down" onmouseenter="menu_options(0,0)"></i>
+                    <a href="{% url menu.family %}{{ menu.address }}" >{{menu.tag}} </a>
+                </li>
+            {% endfor %}
             <li onclick="" class="menu-option"><a href={% url "weblog_main" %} >وبلاگ</a>  </li>
             <li onclick="" class="menu-option"><a href="#contact">همکاری با ما</a></li>
         </nav>
-        <i class="profile-icon" style="margin: 0px;"></i>
         <div class="search-bar"><i id="search-icon" onclick="search(1)"></i></i></div>
+        {% if user.is_authenticated %}
+        <li class="auth"><a href={% url "logout" %}>خروج</a></li>
+            <i class="profile-icon" style="margin: 0px;"></i>
+        {% else  %}
+            <li class="auth"><a href={% url "login" %}>ورود</a></li>
+            <li class="auth"><a href={% url "register" %}>ثبت نام</a></li>
+        {% endif %}
     </ul>
 </header>
 {% block content %}{% endblock content %}

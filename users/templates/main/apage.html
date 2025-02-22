@@ -1,11 +1,11 @@
 {% extends "deafult.html" %}
 {% load static %}
 {% block content %}
-    <div  class="page_banner_anime" style="background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0),rgba(0, 0, 0, 0.8)),url('../media/{{ anime.banner }}');">
+    <div  class="page_banner_anime" style="background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0),rgba(0, 0, 0, 0.8)),url('/../media/{{ anime.banner }}');">
         <h1 id="t" class="anime_title_banner">{{ anime.title }}</h1>
     </div>
     <div style="width:96vw;display:inline-block;margin-right:2vw;">
-        <div class="b-img"><img src="../media/{{ anime.title_img }}" style="  width:100%;user-select: none;display:inline-block;height: 100%;border-radius: 0.5vw;"></div>
+        <div class="b-img"><img src="/../media/{{ anime.title_img }}" style="  width:100%;user-select: none;display:inline-block;height: 100%;border-radius: 0.5vw;"></div>
         <div class="about-anime">
             <p style="user-select: none;font-size: 1vw;text-align: end;color: rgb(114, 114, 114); margin-right: 0.1vw;margin-left: 0.1vw;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;display:">خلاصه : {{ anime.description}}</p>
         </div>
@@ -35,7 +35,7 @@
                 <div class="posts">
                     {% for post in posts %}
                         <a class="post" href={% url "weblog_page" anime_name=anime.title title=post.title %}>
-                            <img class="post-image" src="../media/{{ post.title_img }}">
+                            <img class="post-image" src="/../media/{{ post.title_img }}">
                             <h4>{{ post.title }} </h4>
                         </a>
                     {% endfor %}
