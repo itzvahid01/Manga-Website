@@ -1,0 +1,68 @@
+.user-box{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80vw;
+    height: 40vw;
+    background-color:#1b1b1b;
+    border: 0.2vw solid rgb(41, 41, 41);
+    display: flex;
+    border-radius: 0.5vw;
+    margin-top: 3vw;
+}
+.user-field{
+    background: linear-gradient(to left ,rgb(255, 165, 0,0.025),#1b1b1b);
+    padding-right: 2vw;
+    padding-top: 2vw;
+    margin-bottom: 1vw;
+    text-align: right;
+    width: 37vw;
+    border-right: 0.15vw solid rgb(172, 112, 0);
+}
+
+.user-field h6 {
+    color: rgb(228, 228, 228);
+    margin: 0px;
+    margin-top: 0.5vw;
+    font-size: 1vw;
+}
+.user-field h5{
+    color: rgb(206, 206, 206);
+    font-size: 1.25vw;
+}
+.user-field h4{
+    color: white;
+    font-size: 2vw;
+}
+form{
+    padding-right: 1vw;
+    border-right: 0.1vw solid rgba(255, 166, 0, 0.61);
+}
+input{
+    width: 14.5vw;
+    font-size: 1vw;
+    padding: 0.2vw;
+    border: none;
+    color: rgb(206, 206, 206);
+    background-color: rgb(41, 41, 41);
+    margin-bottom: 1vw;
+    transition: 0.5s;
+}
+input:focus{
+    color: white;
+    outline: none;
+    background-color: rgba(160, 160, 160, 0.1);
+    border-bottom: 0.1vw solid rgba(160, 160, 160, 1);
+}
+label{
+    margin-top: 0vw;
+    text-align: right;
+    font-size: 1vw;
+    font-weight: 700;
+    margin-bottom: 0.2vw;
+    display: block;
+    color: rgb(179, 179, 179);
+}
+.helptext{
+    color: rgb(165, 165, 165);
+    font-size: 0.9vw;
+}

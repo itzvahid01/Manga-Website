@@ -1,5 +1,11 @@
 {% extends "deafult.html" %}
 {% load static %}
+{% block meta %}
+    <link rel="stylesheet" href={% static 'style/blogpage.css' %}>
+{% endblock meta %}
+{% block title %}
+    {{ post.title }}
+{% endblock title %}
 {% block content %}
     <div  class="page_banner_anime" style="background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0),rgba(0, 0, 0, 0.8)),url('/media/{{ post.title_img }}');">
         <h1 class="anime_title_banner">{{ post.title }}</h1>

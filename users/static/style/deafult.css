@@ -1,0 +1,246 @@
+footer {
+    display: block;
+    height: 15vw;
+    margin-top: 15vh;
+    background-color: rgba(16, 16, 16,1);
+}
+
+h1 {
+    color: white;
+    text-align: end;
+}
+h2 {
+    color: white;
+    text-align: end;
+}
+h4{
+    color: rgba(226, 226, 226, 0.884);
+    margin: 0px;
+    margin-top: 1vw;
+}
+.footer-menu {
+    font-size: 1vw;
+    cursor: pointer;
+    color: white;
+    list-style-position: inside;
+    list-style-type: none;
+    margin-top: 1vw;
+    transition: 0.5s all;
+}
+.footer-menu-title {
+    font-size: 1.5vw;
+    cursor: pointer;
+    color: white;
+    list-style-type: none;
+    margin-top: 1vw;
+}
+.footer-menu:hover{
+    margin-right: 1vw;
+}
+a{
+    color: #161616;
+    text-decoration: none;
+}
+.profile-icon {
+    float: left;
+    width: 3.75vw;
+    height: 3.75vw;
+    background-image: url("../img/profile.svg");
+    background-repeat: no-repeat;
+    background-size: 3.75vw;
+    margin-top: 1.125vw;
+    transition: all 0.5s;
+    border-radius: 50%;
+}
+.profile-icon:hover{
+    cursor: pointer;
+    transform: scale(1.07);
+}
+#search_page{
+    height: 100vh;width: 100vw;background-color: #161616;z-index: 3;position: fixed;visibility: hidden;
+}
+.search-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    margin-right: 10vw;
+    float: right;
+    height: 3vw;
+}
+#search-icon {
+    margin: 1vw 0px 0px 1vw;
+    float: right;
+    width: 2vw;
+    border-radius: 50%;
+    height: 2vw; 
+    background-image: url("../img/search.svg");  
+    background-repeat: no-repeat;
+    background-size: 2vw;
+    padding: 0.1vw;
+    transition: 0.5s all;
+}
+#search-icon:hover{
+    background-color: rgba(31, 31, 31,0.3);
+    cursor: pointer;
+}
+.search {
+    text-align: end;
+    z-index: 1;
+    margin-top: 24vh;
+    margin-left: 35vw;
+    width: 30vw;
+    height: 4vh;
+    border-radius: 10px;
+    border: 0px;
+    background-color: #252525;
+}
+
+.search:focus{
+    outline: none;
+    color: white;
+}
+body {
+    background-color: #161616;
+    font-family: iransansdn ;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+header {
+    z-index: 1;
+}
+
+
+header ul {
+    border-radius: 0.5vw;
+    border: 0.15vw solid rgba(22, 22, 22,0.8);
+    margin: 0.5vw;
+    margin-top: -4.5vw;  
+    z-index: 1;
+    position: fixed;
+    width: 95vw;
+    height: 4vw;
+    list-style-type: none;
+    background-color: rgba(22, 22, 22,0.5);
+    backdrop-filter: blur(5px);
+}
+header nav{
+    width: 40vw;
+    float: right;
+}
+.menu-option { 
+    position: relative;
+    display: flex;
+    margin-top: 1vw;
+    height: 3vw;
+    margin-left: 1vw;
+    float: right;
+    font-size: 1vw;
+    padding: 0.1vw;
+    user-select: none;
+}
+.menu-option a {
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    text-align: right;
+    text-decoration: none;
+}
+.menu-option:hover .menu-option a {
+    background-color: #35353580;
+    border-radius: 0.5vw;
+}
+.menu-option::after {
+    content: \2039;
+}
+.angle-down {
+    position: relative;
+    width: 1vw;
+    height: 1vw;
+    transform: rotate(90deg);
+    background-image: url("../img/angle_down.svg" );
+    background-repeat: no-repeat;
+    background-size: 1vw;
+    padding-left: 0.5vw;
+    margin-top: 0.5vw;
+    transition: all 0.5s;
+    border-radius: 50%;
+}
+.angle-down:hover {
+    transform: rotate(0deg);
+}
+.menu-of-option{
+    position: absolute;
+    float: right;
+    display: none;
+    flex-direction: column;
+    top: 7.75vw;
+    left: -5vw;
+    width: 10vw;
+    height: auto;
+    padding: 0px;
+    border-top: 0.1vw solid orange;
+    background-color: #252525;
+    color: rgb(255, 255, 255);
+}
+.menu-of-option li {
+    font-size: 0.85em;
+    cursor: pointer;
+    float: right;
+    text-align: end;
+    margin-top: 0.5vw;
+    padding-right: 0.3vw;
+    transition: 0.5s;
+}
+.menu-option:hover .menu-of-option {
+    display: flex;
+}
+.menu-of-option li:hover{
+    transform: scale(1.05);
+}
+@font-face {
+    font-family: iransansdn;
+    src: url('/iransansdn.ttf');
+}
+
+.logo{
+    margin: 0px;
+    padding: 0.5vw;
+    background-color: #161616;
+    width: 1.5vw;
+    height: 1.5vw;
+    transition: 0.5s all;
+    border: 0.1vw solid #252525;
+    animation-name: hoverLogo;
+}
+.logo:hover{
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #313131;
+}
+.auth{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 3.75vw;
+    height: 3.75vw;
+    background-repeat: no-repeat;
+    background-size: 3.75vw;
+    margin-top: 0.125vw;
+    transition: all 0.5s;
+    margin-right: 1vw;
+}
+
+.auth a{
+    font-size: 1vw;
+    color: rgb(209, 209, 209);
+    transition: all 0.5s;
+}
+.auth:hover a{
+    color: rgb(255, 255, 255);
+}
+.auth:hover{
+    cursor: pointer;
+    border-radius: 0.5vw;
+}

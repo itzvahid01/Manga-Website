@@ -1,17 +1,24 @@
+{% extends "deafult.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href={% static 'style.css' %}>
-</head>
-<body style="display: flex;justify-content: center;justify-items: center;height: 100vh;">
-    <legend class="register_box"> <label class="auth_title">Register</label>
-    <form class="auth_form" method = "POST">
-        <div class="auth_field">{% csrf_token %}{{ form.as_div }}<input type='submit' class="submit"></div>
-    </form>
+{% block meta %}
+    <link rel="stylesheet" href={% static 'style/auth.css' %}>
+    <link rel="stylesheet" href={% static 'style/starbg.css' %}>
+{% endblock meta %}
+{% block title %}
+    ثبت نام
+{% endblock title %}
+{% block content %}
+<div class="bg-animation">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+    <div id="stars4"></div>
+</div>
+<div style="display: flex;justify-content: center;justify-items: center;height: 100vh;">
+    <legend class="register_box"> <label class="auth_title">ثبت نام</label>
+        <form class="auth_form" method = "POST">
+            <div class="auth_field">{% csrf_token %}{{ form.as_div }}<input type='submit' class="submit"></div>
+        </form>
     </legend>
-</body>
-</html>
+</div>
+{% endblock content %}

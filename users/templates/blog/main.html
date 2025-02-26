@@ -1,12 +1,21 @@
 {% extends "deafult.html" %}
 {% load static %}
+{% block meta %}
+    <link rel="stylesheet" href={% static 'style/blog.css' %}>
+{% endblock meta %}
+{% block title %}
+    وبلاگ
+{% endblock title %}
 {% block content %}
+    <div class=""></div>
     <div class="card_weblog_box">
         {% for post in posts %}
+        <a href={% url 'weblog_page' anime_name=post.anime title=post.title %}>
             <div class="card_weblog" >
                 <img class="title_img_weblog" src="../../media/{{ post.title_img }}">
-                <h4 class="title_weblog_card" ><a href={% url 'weblog_page' anime_name=post.anime title=post.title %}>{{ post.title }}</a></h4>
+                <h4 class="title_weblog_card"> {{ post.title }}</h4>
             </div>
+        </a>
         {% endfor %}
     </div>
 {% endblock content %}

@@ -9,14 +9,15 @@ urlpatterns = [
     path('login/',login_p,name="login"),
     path('register/',register_p,name="register"),
     path('logout/',logout_view,name="logout"),
+    # ----------------------- profile ------------------------
+    path("profile/", profile, name="profile"),
+    path("about_us/",about_us,name='about_us'),
    #------------------------ main ----------------------
     path("", index, name="home"),
     path("<str:name>/", index, name="sth"),
     #----------------------- film --------------------
     path("anime/<str:name>/", anime_page, name="detail"),
     path("anime/<str:anime_name>/<str:season_number>/<str:episode_number>/",download,name="download"),
-    # ----------------------- profile ------------------------
-    path("profile/", index, name="profile"),
     #------------------------     cats    ------------------------
     path("categury/",cats_anime,name="categury"),
     path("categury/<str:cat>/",cats_anime,name="categury"),

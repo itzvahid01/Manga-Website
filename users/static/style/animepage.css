@@ -1,0 +1,187 @@
+.d-m {
+    display: flex;
+    float: left;
+    margin: 10px;
+    color: rgb(199, 199, 199);
+    background-color: rgba(56, 56, 56,0.8);
+    border: 1px solid #1f1f1f;
+    width: 10vw;
+    height: 8vh;
+    border-radius: 0.5vw;
+    font-size: 1.3em;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    animation-duration: 0.5s;
+    transition: all 0.5s;
+}
+.d-m:hover {
+    border-radius: 0px;
+    background-color: #2e2e2e;
+}
+.page_banner_anime { 
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:40vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 1vw 0.1vw black;
+}
+.anime_title_banner{
+    display: flex;
+    position: relative;
+    color: #161616;
+    text-shadow:0.2vw 0 #bbbbbb, -0.2vw 0 #e0e0e0, 0 0.2vw #adadad, 0 -0.2vw #b3b3b3,
+    1px 1px #fff, -0.1vw -0.1vw #fff, 0.1vw -0.1vw #fff, -0.1vw 0.1vw #fff;
+    font-size: 7vw;
+    margin: 0px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.season {
+    z-index: 1;
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 17vw;
+    margin-top: 1vw;
+}
+.season-title-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: end;
+    justify-self: end;
+    text-align: end;
+    align-items: end;
+    align-content: end;
+    width: 100%;
+    height: fit-content;
+    background-color: rgba(78, 78, 78,0.5);
+    border: 0.1vw solid rgba(78, 78, 78,0.8);
+    padding: 1vw;
+}
+.season-title{
+    font-size: 1.3vw;
+    display: flex;
+    color: rgb(201, 201, 201);
+    justify-content: center;
+    align-items: center;
+    margin: 0.1vw;
+    padding: 0.5vw;
+    width: 8.6%;
+    height: 2vw;
+    background-color: #303030;
+    font-weight: 900;
+    transition: 0.5s;
+}
+.season-title:hover{
+    cursor: pointer;
+    color: white;
+}
+.download {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(49, 49, 49,0.5);
+    border: 0.1vw solid rgba(49, 49, 49,0.8);
+    padding: 1vw;
+    border-radius: 0.5vw;
+    width: 90vw;
+    margin-right: 0vw;
+    margin-top: 10vw;
+    margin-left: 4vw;
+    float: right;
+}
+.b-img {
+    border-radius: 0.25vw;
+    box-shadow: 0px 0px 5px 1px black;
+    width: 16vw;
+    height: 24vw;
+    float: right;
+    margin-top: 5vw;
+}
+.posts-box{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    background-color: #2b2b2b;
+    margin-top: 5vw;
+}
+.posts{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-top: 5vw;
+    padding-bottom: 2.5vw;
+    height: auto;
+    background-color: #2b2b2b;
+}
+.post{
+    width: 21vw;
+    height: 12vw;
+    background-color: #272727;
+    border: 0.2vw solid #252525;
+    border-radius: 0.1vw;
+    transition: 0.5s;
+}
+.post:hover{
+    cursor: pointer;
+}
+.post-image{
+    margin-top: 0.25vw;
+    width: 20vw;
+    height: 8vw;
+    border: 0.2vw solid rgba(0, 0, 0,0.1);
+    border-radius: 0.1vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+.post h4 {
+    margin-right: 1vw;
+    float: right;
+    font-size: 0.9vw;
+    color: #b8b8b8;
+    transition: 0.5s;
+}
+.post:hover h4{
+    color: white;
+}
+.post:hover .post-image {
+    filter: contrast(1.075);
+}
+.about-anime { 
+    display: flex;
+    background-color: rgba(49, 49, 49,0.5);
+    width:60vw;
+    margin-top:15.5vw;
+    border: 0.1vw solid rgba(49, 49, 49,0.8);
+    padding: 1vw;
+    height: 10vw;
+    border-radius: 0.5vw;
+    margin-right: 2vw;
+    margin-left: 4vw;
+    float: right;
+}
+.season-list {
+    margin-top: 2vw;
+    width: 100%;
+    min-height: 20vw;
+    background-color: #2b2b2b;
+}
+.season-title-d {
+    display: flex;
+    justify-content: center;
+}
+#episodes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 79vw;
+    margin-top: 2vw;
+    margin-right:0vw;
+    float: right;
+    min-height: 15vw;
+}

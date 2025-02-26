@@ -1,5 +1,8 @@
 {% extends "deafult.html" %}
 {% load static %}
+{% block meta %}
+    <link rel="stylesheet" href={% static 'style/home.css' %}>
+{% endblock meta %}
 {% block content %}
     <div class="banner" style="background-image: url('/media/{{ lasted_banner.img }}');"><a href='{% url "detail" name=lasted_banner.anime %}' class="button_banner">بخوانید</a></div>
     {% for item in  cat_shows %}

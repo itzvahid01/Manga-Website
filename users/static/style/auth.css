@@ -1,0 +1,60 @@
+.auth_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 15vw;
+    height: 20vw;
+    background-color: #202020;
+    border: 0.2vw solid #111111;
+    border-radius: 0.5vw;
+    padding: 1vw;
+}
+.auth_field{
+    width: 20vw;
+}
+.auth_field label{
+    width: 15vw;
+    display: inline-block;
+    text-align: center;
+    font-size: 1.3vw;
+    font-weight: 700;
+    margin-bottom: 0.2vw;
+    display: block;
+    color: rgb(179, 179, 179);
+}
+.auth_field input{
+    width: 14.5vw;
+    font-size: 1vw;
+    padding: 0.2vw;
+    border: none;
+    color: rgb(206, 206, 206);
+    background-color: rgb(41, 41, 41);
+    margin-bottom: 1vw;
+    transition: 0.5s;
+}
+.auth_field input:focus{
+    color: white;
+    outline: none;
+    background-color: rgba(160, 160, 160, 0.1);
+    border-bottom: 0.1vw solid rgba(160, 160, 160, 1);
+}
+.submit:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #1f1f1f;
+}
+.auth_title{
+    display: flex;
+    margin-bottom: 1vw;
+    font-size: 2vw;
+    justify-content: center;
+    color: white;
+}
+.register_box{
+    margin-top: 5vw;
+}
+.helptext{
+    font-size: 0.9vw;
+    color: rgb(146, 146, 146);
+}

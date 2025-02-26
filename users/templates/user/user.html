@@ -1,0 +1,35 @@
+{% extends "deafult.html" %}
+{% load static %}
+{% block meta %}
+    <link rel="stylesheet" href={% static 'style/profile.css' %}>
+{% endblock meta %}
+{% block title %}
+    {{ user }}
+{% endblock title %}
+{% block content %}
+    <div style="width:100vw;height:auto;display: flex;justify-content: center;">
+        <div class="user-box">
+            <div class="user-field" style="width:78vw;text-align: center;border-right: 0px solid orange;background:none;">
+                <h4>اطلاعات شما</h4>
+            </div>
+            <div class="user-field">
+                <h5>ایمیل</h5>
+                <h6>{{ user.email }}</h6>
+                <form> {{ email_form.as_div }} </form>
+            </div>
+            <div class="user-field">
+                <h5>نام کاربری</h5>
+                <h6>{{ user.username }}</h6>
+                <form> {{ username_form.as_div }} </form>
+            </div>
+            <div class="user-field">
+                <h5>تاریخ عضویت</h5>
+                <h6>{{ user.date_joined }}</h6>
+            </div>
+            <div class="user-field">
+                <h5> رمز عبور </h5>
+                <h6>به دلایل امنیتی نشان داده نمی شود</h6>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

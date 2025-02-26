@@ -28,6 +28,11 @@ def index(request,name=None):
         ]
     context = {"cat_shows":cat_shows,"menus":menus,"menus_options":menus_options,"imdb_animes" : most_imdb_animes,"click_animes":most_clicked_animes,"lasted_animes" : lasted_animes,"tags": tags,"lasted_banner":lasted_banner[0]}
     return render(request,'main/home.html',context=context)
+def about_us(request):
+    menus = menu()[0]
+    menus_options = menu()[1]
+    context = {"menus":menus,"menus_options":menus_options}
+    return render(request,'main/about_us.html',context=context)
 def anime_page(request,name):
     info = Anime.objects.get(title=name)
     seasons = Season.objects.filter(anime=info.pk)
@@ -46,6 +51,8 @@ def download(request,anime_name,season_number,episode_number):
     return  FileResponse(open(f"{settings.BASE_DIR}\\media\\{episode.media.name}", 'rb'),filename=episode.media.name,as_attachment=True)
 #------------------------------------------------ auth -----------------------------------------------
 def login_p(request):
+    menus = menu()[0]
+    menus_options = menu()[1]
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
@@ -54,9 +61,11 @@ def login_p(request):
             login(request, user)
         return redirect('home')
     form = UserLoginForm()
-    context = {'form' : form}
+    context = {"menus":menus,"menus_options":menus_options,'form' : form}
     return render(request,'auth/login.html',context)
-def register_p(request): 
+def register_p(request):
+    menus = menu()[0]
+    menus_options = menu()[1]
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
         if form.is_valid():
@@ -65,7 +74,7 @@ def register_p(request):
             form.save()
             return redirect('home')
     form = UserRegisterForm()
-    context = {'form' : form}
+    context = {"menus":menus,"menus_options":menus_options,'form' : form}
 
     return render(request,'auth/register.html',context)
 @login_required(login_url='login')
@@ -85,27 +94,27 @@ def cats_anime(request,cat):
     else :
         flag = True
         filter_word= request.GET.get('tag')
-    animes_show = []
-    for anime in animes :
-        for tag_list in tags_list :
-            if anime.pk == tag_list.pk :
-                for tag in tags :
-                    if flag :
-                        if tag.title == filter_word :
-                            if tag.pk == tag_list.pk :
+    if flag :
+        animes_show = []
+        for anime in animes :
+            for tag_list in tags_list :
+                if anime.pk == tag_list.anime_id.pk :
+                    for tag in tags :
+                        if tag.pk == tag_list.tags.pk :  
+                            if tag.title == filter_word :
                                 animes_show.append(anime)
-                    else :
-                        if cat == 'news':
-                            cat =  'id'
-                        elif cat == 'populer' :
-                            cat = 'click'
-                        elif cat == 'best':
-                            cat = 'imdb'
-                        else:
-                            cat = 'created'
-                        for tag_list in tags_list:
-                            animes_show = Anime.objects.all().order_by(f"{cat}")
-    context = {"menus":menus,"menus_options":menus_options,'animes' : animes_show,'tags' : tags}
+    else :
+        if cat == 'news':
+            cat =  'id'
+        elif cat == 'populer' :
+            cat = 'click'
+        elif cat == 'best':
+            cat = 'imdb'
+        else:
+            cat = 'created'
+        for tag_list in tags_list:
+            animes_show = Anime.objects.all().order_by(f"{cat}")    
+    context = {"menus":menus,"menus_options":menus_options,'animes' : animes_show,'tags' : tags_list    }
     return render(request,'main/cpage.html',context)
 #--------------------------------------- weblog --------------------------------------------
 def weblog_main(request):
@@ -121,3 +130,16 @@ def weblog_page(request,anime_name,title):
     menus_options = menu()[1]
     context = {"menus":menus,"menus_options":menus_options,'anime' : anime,'post' : post}
     return render(request,'blog/page.html',context)
+#--------------------------------------- profile --------------------------------------------
+@login_required(login_url='login')
+def profile(request):
+    menus = menu()[0]
+    menus_options = menu()[1]
+    password = UserPasswordForm()
+    username = UserNameForm()
+    email = UserEmailForm()
+    if request.method == "POST":
+        return redirect('profile')
+    else:
+        context = {"menus":menus,"menus_options":menus_options,'email_form':email,'username_form':username,'password_form':password}
+        return render(request,'user/user.html',context)

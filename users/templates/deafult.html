@@ -1,14 +1,13 @@
 {% load static %}
-{% block meta %}
-    <title>لونیکا | مرجع دانلود  رایگان کتاب های تصویری </title>
-    <link rel="stylesheet" href={% static 'style.css' %}>
+    <title>لونیکا |  {% block title %}مرجع دانلود  رایگان کتاب های تصویری{% endblock title %}</title>
+    {% block meta %}{% endblock meta %}
+    <link rel="stylesheet" href={% static 'style/deafult.css' %}>
     <script src={% static 'script.js' %}></script>
     <link rel="icon" href={% static '/img/lunika.svg' %} type="image/svg" >
     <meta name="author" content="amirparsa7131@gmail.com">
 
     <meta name="keywords" content="Lunika,مانهوا,مانگا,مانها" >
     <meta name="description" content="لونیکا مرجع دانلود انواع کتاب تصویری زا جمله مانگا ، مانهوا ، مانها، کمیک بوک و غیره با ترجمه ی فارسی و به صورت کاملا رایگان" />
-{% endblock meta %}
 <div style="height:5vw;width:100vw;z-index: 0;" ></div>
 <div id="search_page" >
     <input class="search" type="search" placeholder="در دنیای کمیک های مصور جتسجو کنید "></input>
@@ -33,14 +32,14 @@
                 </li>
             {% endfor %}
             <li onclick="" class="menu-option"><a href={% url "weblog_main" %} >وبلاگ</a>  </li>
-            <li onclick="" class="menu-option"><a href="#contact">همکاری با ما</a></li>
+            <li onclick="" class="menu-option"><a href={% url "about_us" %}>همکاری با ما</a></li>
         </nav>
         <div class="search-bar"><i id="search-icon" onclick="search(1)"></i></i></div>
         {% if user.is_authenticated %}
         <li class="auth"><a href={% url "logout" %}>خروج</a></li>
-            <i class="profile-icon" style="margin: 0px;"></i>
+            <a href='{% url "profile" %}'><i class="profile-icon" style="margin: 0px;"></i></a>
         {% else  %}
-            <li class="auth"><a href={% url "login" %}>ورود</a></li>
+            <li class="auth" ><a href={% url "login" %}>ورود</a></li>
             <li class="auth"><a href={% url "register" %}>ثبت نام</a></li>
         {% endif %}
     </ul>
@@ -72,7 +71,7 @@
                         <h4>Phone : 44 42 82 24</h4>
                     </li>
                     <li title="email addres">
-                        <h4>Email : vahid.fd.developer@gmail.com</h4>
+                        <h4>Email : amirparsa7131@gmail.com</h4>
                     </li>
                     <li title="social media">
                         <nav style="

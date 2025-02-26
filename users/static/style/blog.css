@@ -1,0 +1,101 @@
+.card_weblog_box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.card_weblog{
+    background-color: #20202066;
+    border: 0.3vw solid #1b1b1b;
+    border-radius: 0.1vw;
+    padding: 0.5vw;
+    width: 20vw;
+    height: 15vw;
+    transition: 0.5s;
+}
+.card_weblog:hover{
+    background-color: #181818;
+    border: 0.3vw solid #1a1a1a;
+}
+.title_img_weblog{
+    border: 0.1vw solid rgb(53, 53, 53);
+    box-shadow: 0px 0vw 1vw 0.1vw #161616;
+    background-size: cover;
+    width: 20vw;
+    height: 10vw;
+    filter: grayscale(0.3);
+    background-repeat: no-repeat;
+    transition: 0.3s;
+}
+.card_weblog:hover .title_img_weblog {
+    cursor: pointer;
+    filter: grayscale(0);
+}
+.title_weblog_card {
+    font-size: 1.2vw;
+    color: rgb(202, 202, 202);
+    float: right;
+    transition: 0.5s;
+}
+.card_weblog:hover .title_weblog_card{
+    color: white;
+}
+.weblog_content_box{
+    display: inline-block;
+    padding: 1vw;
+    text-align: right;
+    width: 92vw;
+    margin: 5vw 3.2vw;
+    margin-bottom: 0vw;
+    border: 0.2vw solid rgb(19, 19, 19,0.2);
+    background-color: rgba(43, 43, 43,0.5);
+}
+
+.posts-box{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    background-color: #2b2b2b;
+    margin-top: 5vw;
+}
+.posts{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-top: 5vw;
+    padding-bottom: 2.5vw;
+    height: auto;
+    background-color: #2b2b2b;
+}
+.post{
+    width: 17vw;
+    height: 17vw;
+    background-color: #272727;
+    border: 0.2vw solid #252525;
+    border-radius: 1vw;
+    transition: 0.5s;
+}
+.post:hover{
+    cursor: pointer;
+}
+.post-image{
+    margin-top: 1vw;
+    width: 15vw;
+    height: 6vw;
+    border: 0.2vw solid rgba(0, 0, 0,0.1);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+.post h4 {
+    font-size: 0.9vw;
+    color: #b8b8b8;
+    transition: 0.5s;
+}
+.post:hover h4{
+    color: white;
+}
+.post:hover .post-image {
+    filter: contrast(1.15);
+}

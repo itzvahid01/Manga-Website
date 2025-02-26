@@ -1,9 +1,13 @@
 {% extends "deafult.html" %}
 {% load static %}
+{% block meta %}
+    <link rel="stylesheet" href={% static 'style/home.css' %}>
+    <link rel="stylesheet" href={% static 'style/categury.css' %}>
+{% endblock meta %}
 {% block content %}
     <div class="cards_box">
         {% for anime in animes %}
-        <a href="{% url 'home'%}{{ anime }}">
+        <a href="{% url 'detail' anime %}">
             <div class="card" style="background-image: linear-gradient(to bottom,rgba(151, 150, 148, 0.1),rgba(0, 0, 0, 0.8)),url('../../media/{{ anime.title_img }}');">
                 <div class="anime-name">{{ anime }}</div>
                 <div class="description_card">

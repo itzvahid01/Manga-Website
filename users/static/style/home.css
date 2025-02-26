@@ -1,0 +1,155 @@
+.card {
+    z-index: 0;
+    display: flex;
+    flex-wrap: wrap;
+    transition: all 0.5s;
+    width: 11vw;
+    height: 16.5vw;
+    background-color: #808080;
+    filter: contrast(1.02);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0.25vw;
+    transition: all 0.7s;
+    border: 0.1vw solid #242424;
+}
+
+.card:hover {
+    transform: translateY(-1vw);
+    border-radius: 0px;
+    filter: contrast(1.1);
+    cursor: pointer;
+}
+.anime-name {
+    font-size: 1vw;
+    display: flex;
+    margin: 0.5vw;
+    margin-top: 13vw;
+    width: 100%;
+    height: 3.5vw;
+    visibility: visible;
+    color: rgb(201, 201, 201);
+    transition: 0.5s;
+}
+.card:hover .anime-name{
+    color: white;
+}
+.description_card{
+    display: inline-block;
+    position: relative;
+    background-color: #313131;
+    width: 11vw;
+    height: 0vh;
+    margin-top: 0vw;
+    transition: 0.7s all;
+
+}
+.card:hover .description_card {
+    border: 0.1vw solid #414141;
+    height: 7vw;
+}
+.card:hover .anime-name {
+    visibility: visible;
+}
+.tags{
+    display: block;
+    flex-wrap: wrap;
+    width:11vw;
+    height: 0vw;
+}
+.card:hover  .tags{
+    height: 16.5vw;
+}
+.tag{
+    float: left;
+    font-size: 0.8vw;
+    border: 0.1vw solid rgba(141, 141, 141,0.1);
+    padding: 0.5vw;
+    color: #8d8d8d;
+    height: fit-content;
+    visibility: hidden;
+    transition: 0.2s;
+}
+.card:hover  .tag{
+    visibility: visible;
+}
+.banner {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    background-color: #313131;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 1vw 0.1vw black;
+    height:40vw;
+}
+.button_banner{
+    color: rgb(211, 211, 211);
+    font: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(126, 126, 126, 0.6);
+    border: 0.15vw solid rgba(44, 44, 44, 0.5);
+    margin: 2vw;
+    padding: 1vw;
+    width: 6vw;
+    height: 2vw;
+    transition: 1s;
+}
+.button_banner:hover{
+    color: white;
+    border-radius: 0.5vw;
+    background-color: rgba(83, 83, 83, 0.5);
+    border: 0.15vw solid rgba(44, 44, 44, 0.5);
+}
+.b-img {
+    border-radius: 0.25vw;
+    box-shadow: 0px 0px 5px 1px black;
+    width: 16vw;
+    height: 24vw;
+    float: right;
+    margin-top: 5vw;
+}
+
+.category {
+    display: flex;
+    justify-content: space-around;
+    margin: 0px 2vw;
+    padding: 1vw;
+    background-color: rgb(20, 20, 20);
+    border: 0.2vw solid rgb(19, 19, 19);
+}
+
+.category-title {
+    color: white;
+    text-align: end;
+    font-size: 1.5em;
+    margin: 0px 2vw 0px 2vh;
+}
+.see {
+    display: inline-block;
+    color: #dadada;
+    font-size: 0.8em;
+    margin: 0px 0px 10px 30px;
+    text-decoration: none;
+    border-bottom: 1px solid #161616;
+    transition: 0.1s;
+}
+.see:hover{
+    border-bottom: 1px solid white;
+}
+.see::before{
+    content: '\2039';
+    height: 20px;
+    width: 20px;
+    background-repeat: no-repeat;
+    background-size: 10px;
+
+}
+
+
+section {
+    margin-top: 2vw;
+    margin-bottom: 8vw;
+}
