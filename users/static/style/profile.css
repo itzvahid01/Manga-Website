@@ -3,20 +3,20 @@
     flex-wrap: wrap;
     width: 80vw;
     height: 40vw;
-    background-color:#1b1b1b;
+    background-color:#6e6e6e06;
     border: 0.2vw solid rgb(41, 41, 41);
     display: flex;
     border-radius: 0.5vw;
     margin-top: 3vw;
 }
 .user-field{
-    background: linear-gradient(to left ,rgb(255, 165, 0,0.025),#1b1b1b);
+    background: linear-gradient(to left ,#ffa50006,#301f0006);
     padding-right: 2vw;
     padding-top: 2vw;
     margin-bottom: 1vw;
     text-align: right;
     width: 37vw;
-    border-right: 0.15vw solid rgb(172, 112, 0);
+    border-right: 0.15vw solid #ac7000;
 }
 
 .user-field h6 {

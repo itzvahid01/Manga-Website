@@ -108,6 +108,9 @@ body {
     overflow-x: hidden;
 }
 header {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;;
     z-index: 1;
 }
 
@@ -132,8 +135,9 @@ header nav{
 .menu-option { 
     position: relative;
     display: flex;
-    margin-top: 1vw;
-    height: 3vw;
+    align-items: center;
+    justify-content: center;
+    height: 4vw;
     margin-left: 1vw;
     float: right;
     font-size: 1vw;

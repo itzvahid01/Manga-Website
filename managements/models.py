@@ -69,11 +69,16 @@ class Menu(m.Model):
     address = m.CharField(max_length=255,null=True,blank=True)
     family=m.CharField(max_length=255,null=True,blank=True)
     def __str__(self):
-        return f"{self.tag}"
+        return f"{self.tag.title}"
     
 class MenuOption(m.Model):
     tag = m.ForeignKey(Tag,on_delete=m.CASCADE,null=True,blank=True)
-    menu = m.ForeignKey(Menu,on_delete=m.CASCADE,related_name="menus")
-    title = m.CharField(max_length=255)
+    menu = m.ForeignKey(Menu,on_delete=m.CASCADE,related_name="menus",null=True,blank=True)
+    title = m.CharField(max_length=255,null=True,blank=True)
     def __str__(self):
         return f"{self.menu}|  {self.title}"
+class WantTextBox(m.Model):
+    title = m.CharField(max_length=255,null=True,blank=True)
+    text = m.TextField(null=True,blank=True)
+    img = m.ImageField()
+    color = m.CharField(max_length=255)

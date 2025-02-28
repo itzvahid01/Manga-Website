@@ -31,7 +31,8 @@ def index(request,name=None):
 def about_us(request):
     menus = menu()[0]
     menus_options = menu()[1]
-    context = {"menus":menus,"menus_options":menus_options}
+    want_text_boxes = WantTextBox.objects.all()
+    context = {"menus":menus,"menus_options":menus_options,'want_text_boxes':want_text_boxes}
     return render(request,'main/about_us.html',context=context)
 def anime_page(request,name):
     info = Anime.objects.get(title=name)
@@ -88,6 +89,8 @@ def cats_anime(request,cat):
     animes = Anime.objects.all()
     tags_list = TagList.objects.all()
     tags = Tag.objects.all()
+    ms = Menu.objects.filter(address=cat)
+    animes_show = []
     #---------------------- Manga,Manha,Manhuwa,... -------------
     if request.GET.get('tag') == None:
         flag = False
@@ -95,14 +98,24 @@ def cats_anime(request,cat):
         flag = True
         filter_word= request.GET.get('tag')
     if flag :
-        animes_show = []
         for anime in animes :
+            f1 = False
+            f2= False
             for tag_list in tags_list :
                 if anime.pk == tag_list.anime_id.pk :
                     for tag in tags :
-                        if tag.pk == tag_list.tags.pk :  
-                            if tag.title == filter_word :
-                                animes_show.append(anime)
+                        if tag.pk == tag_list.tags.pk :
+                            for m in ms :
+                                if tag.title == f"{m}" :
+                                    f1=True
+                                    print(1)
+                                if tag.title == filter_word :
+                                    f2=True
+                                    print(2)
+                        print('---')
+                    if f1:
+                        if f2:
+                            animes_show.append(anime)
     else :
         if cat == 'news':
             cat =  'id'
@@ -111,9 +124,15 @@ def cats_anime(request,cat):
         elif cat == 'best':
             cat = 'imdb'
         else:
-            cat = 'created'
-        for tag_list in tags_list:
-            animes_show = Anime.objects.all().order_by(f"{cat}")    
+            x = 'created'
+        for anime in animes :
+            for tag_list in tags_list :
+                if anime.pk == tag_list.anime_id.pk :
+                    for tag in tags :
+                        if tag.pk == tag_list.tags.pk : 
+                            for m in ms :
+                                if tag.title == f"{m}" :
+                                    animes_show.append(anime)    
     context = {"menus":menus,"menus_options":menus_options,'animes' : animes_show,'tags' : tags_list    }
     return render(request,'main/cpage.html',context)
 #--------------------------------------- weblog --------------------------------------------

@@ -4,4 +4,23 @@
     <link rel="stylesheet" href={% static 'style/about_us.css' %}>
 {% endblock meta %}
 {% block content %}
+    {% for wtb in want_text_boxes %}
+        <div class="main-box">
+            <div class="want-box">
+                <div class="want-box-img" style="border-right: 0.3vw solid #{{ wtb.color }};">
+                        <img class="want-img" src="../../media/{{ wtb.img }}">
+                </div>
+                <div class="want-box-title">
+                    <h4 class="want-title">
+                        {{ wtb.title }}
+                    </h4>
+                </div>
+                <div class="want-box-text">
+                    <p class="want-text">
+                        {{ wtb.text }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock content %}

@@ -9,4 +9,5 @@ admin.site.register(Season)
 admin.site.register(Episode)
 admin.site.register(Banner)
 admin.site.register(Post)
+admin.site.register(WantTextBox)
 # Register your models here.
