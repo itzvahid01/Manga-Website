@@ -111,7 +111,7 @@ header {
     display: flex;
     justify-content: space-evenly;
     text-align: center;;
-    z-index: 1;
+    z-index: 10;
 }
 
 
@@ -120,7 +120,7 @@ header ul {
     border: 0.15vw solid rgba(22, 22, 22,0.8);
     margin: 0.5vw;
     margin-top: -4.5vw;  
-    z-index: 1;
+    z-index: 10;
     position: fixed;
     width: 95vw;
     height: 4vw;
@@ -143,6 +143,10 @@ header nav{
     font-size: 1vw;
     padding: 0.1vw;
     user-select: none;
+    transition: 0.5s;
+}
+span{
+    color: rgb(230, 176, 0);
 }
 .menu-option a {
     display: inline-block;
@@ -150,9 +154,13 @@ header nav{
     text-align: right;
     text-decoration: none;
 }
-.menu-option:hover .menu-option a {
-    background-color: #35353580;
+.menu-option-content-title{
+    padding: 0.5vw;
     border-radius: 0.5vw;
+    transition: 0.5s;
+}
+.menu-option:hover .menu-option-content-title  {
+   background-color: rgba(80, 80, 80, 0.5);
 }
 .menu-option::after {
     content: \2039;
@@ -170,9 +178,7 @@ header nav{
     transition: all 0.5s;
     border-radius: 50%;
 }
-.angle-down:hover {
-    transform: rotate(0deg);
-}
+
 .menu-of-option{
     position: absolute;
     float: right;

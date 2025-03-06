@@ -2,6 +2,7 @@
 {% load static %}
 {% block meta %}
     <link rel="stylesheet" href={% static 'style/animepage.css' %}>
+    <script src={% static '/script.js' %}></script>
 {% endblock meta %}
 {% block title %}
     {{ anime.title }}
@@ -21,17 +22,33 @@
                 <div class="season-title" id="season-title-{{ season.number }}" onclick="show_season({{ season.number }})">{{ season.number }}</div>
             {% endfor %}
             </div>
+            <div class="lang-box">
+                <div id="myBtnContainer">
+                        <button class="btn" onclick="filterSelection('en');return false;var lang = 'en';"> انگلیسی</button>
+                        <button class="btn" onclick="filterSelection('fa');return false;var lang = 'fa';"> فارسی</button>
+                    <label for="lang-list" class="slang">زبان</label>
+                </div>
+            </div>
             <div class="season-list">
             {% for season in seasons %}
                 <div class="season" id="{{ season.number }}">
-                    <div class="episodes">
-                        {% for episode in episodes %}
+                    <div class="container">
+                        <div class="episodes">
+                            {% for episode in episodes %}
                             {% if episode.season.number == season.number %}
-                            <a class='d-m' href="{% url 'home'%}{{ anime.title }}/{{ season.number }}/{{ episode.number }}"> 
-                                {{ episode.number }}
-                            </a>
+                                {% for media in medias %}
+                                    {% if episode.media.pk == media.pk %}
+                                    <a  class="filterDiv fa" href="{% url 'home'%}anime/{{ anime.title }}/{{ season.number }}/{{ episode.number }}/fa"> 
+                                        <span>فارسی </span> | قسمت {{ episode.number }}
+                                    </a>
+                                    <a  class="filterDiv en" href="{% url 'home'%}anime/{{ anime.title }}/{{ season.number }}/{{ episode.number }}/fa"> 
+                                        <span>انگلیسی </span>| قسمت {{ episode.number }}
+                                    </a>
+                                    {% endif %}
+                                {% endfor %}
                             {% endif %}
                         {% endfor %}
+                        </div>
                     </div>
                 </div>
             {% endfor %}

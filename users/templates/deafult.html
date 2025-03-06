@@ -17,22 +17,21 @@
         <img title="Lunika Studio" src={% static '/img/lunika.svg' %} alt="Lunika" style="width: 2.5vw;float: right;margin-top: 0.7vw;margin-right:2vw">
         <hr style="float: right;height:2vw;margin-left: 10vw;margin-right: 2.5vw;margin-top:2vh;">
         <nav>
-            <li onclick="" class="menu-option"><a href="{% url 'home' %}" >صفحه اصلی </a> </li>
+            <li onclick="" class="menu-option"><a  class="menu-option-content-title" href="{% url 'home' %}" >صفحه اصلی </a> </li>
             {% for menu in menus %}
                 <li onclick="" class="menu-option">
                     <ul  onmouseleave="menu_options(1,0)" class="menu-of-option" id="manga_menu">
                     {% for mo in menus_options %}
                         {% if mo.menu.pk == menu.pk %}
-                            <a href="{% url menu.family %}{{ menu.address }}/?tag={{ mo.title }}"><li>{{mo.title}}</li></a>
+                            <a href="{% url menu.family %}{{ menu.address }}/?tag={{ mo.title }}"><li>{{mo.title}} <span><</span> </li></a>
                         {% endif %}
                     {% endfor %}
                     </ul>
-                    <i class="angle-down" onmouseenter="menu_options(0,0)"></i>
-                    <a href="{% url menu.family %}{{ menu.address }}" >{{menu.tag}} </a>
+                    <a class="menu-option-content-title" href="{% url menu.family %}{{ menu.address }}" ><span>|</span> {{menu.tag}} <span>|</span> </a>
                 </li>
             {% endfor %}
-            <li onclick="" class="menu-option"><a href={% url "weblog_main" %} >وبلاگ</a>  </li>
-            <li onclick="" class="menu-option"><a href={% url "about_us" %}>همکاری با ما</a></li>
+            <li onclick="" class="menu-option"><a  class="menu-option-content-title" href={% url "weblog_main" %} >وبلاگ</a>  </li>
+            <li onclick="" class="menu-option"><a class="menu-option-content-title" href={% url "about_us" %}>همکاری با ما</a></li>
         </nav>
         <div class="search-bar"><i id="search-icon" onclick="search(1)"></i></i></div>
         {% if user.is_authenticated %}

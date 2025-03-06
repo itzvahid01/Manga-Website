@@ -17,7 +17,7 @@ urlpatterns = [
     path("<str:name>/", index, name="sth"),
     #----------------------- film --------------------
     path("anime/<str:name>/", anime_page, name="detail"),
-    path("anime/<str:anime_name>/<str:season_number>/<str:episode_number>/",download,name="download"),
+    path("anime/<str:anime_name>/<str:season_number>/<str:episode_number>/<str:languge>/",download,name="download"),
     #------------------------     cats    ------------------------
     path("categury/",cats_anime,name="categury"),
     path("categury/<str:cat>/",cats_anime,name="categury"),

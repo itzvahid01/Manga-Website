@@ -5,7 +5,6 @@
     height: 40vw;
     background-color:#6e6e6e06;
     border: 0.2vw solid rgb(41, 41, 41);
-    display: flex;
     border-radius: 0.5vw;
     margin-top: 3vw;
 }
@@ -33,36 +32,23 @@
     color: white;
     font-size: 2vw;
 }
-form{
-    padding-right: 1vw;
-    border-right: 0.1vw solid rgba(255, 166, 0, 0.61);
-}
-input{
+button{
+    cursor: pointer;
     width: 14.5vw;
     font-size: 1vw;
     padding: 0.2vw;
     border: none;
-    color: rgb(206, 206, 206);
     background-color: rgb(41, 41, 41);
+    border: 0.1vw solid rgb(41, 41, 41);
     margin-bottom: 1vw;
-    transition: 0.5s;
+    transition: 0.2s;
 }
-input:focus{
+button:hover{
     color: white;
     outline: none;
-    background-color: rgba(160, 160, 160, 0.1);
-    border-bottom: 0.1vw solid rgba(160, 160, 160, 1);
+    background-color: rgba(73, 73, 73, 0.1);
+    border: 0.1vw solid rgb(41, 41, 41);
 }
-label{
-    margin-top: 0vw;
-    text-align: right;
-    font-size: 1vw;
-    font-weight: 700;
-    margin-bottom: 0.2vw;
-    display: block;
-    color: rgb(179, 179, 179);
-}
-.helptext{
-    color: rgb(165, 165, 165);
-    font-size: 0.9vw;
+button a {
+    color: white;
 }
