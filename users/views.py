@@ -108,31 +108,37 @@ def cats_anime(request,cat):
                             for m in ms :
                                 if tag.title == f"{m}" :
                                     f1=True
-                                    print(1)
                                 if tag.title == filter_word :
                                     f2=True
-                                    print(2)
-                        print('---')
                     if f1:
                         if f2:
                             animes_show.append(anime)
     else :
+        f3 = False
         if cat == 'news':
             cat =  'id'
+            f3 = True
         elif cat == 'populer' :
             cat = 'click'
+            f3 = True
         elif cat == 'best':
             cat = 'imdb'
-        else:
-            x = 'created'
-        for anime in animes :
-            for tag_list in tags_list :
-                if anime.pk == tag_list.anime_id.pk :
-                    for tag in tags :
-                        if tag.pk == tag_list.tags.pk : 
-                            for m in ms :
-                                if tag.title == f"{m}" :
-                                    animes_show.append(anime)    
+            f3 = True
+        if f3:
+            animes_show = Anime.objects.all().order_by(f"{cat}")  
+        else :
+            for anime in animes :
+                f1 = False
+                f2= False
+                for tag_list in tags_list :
+                    if anime.pk == tag_list.anime_id.pk :
+                        for tag in tags :
+                            if tag.pk == tag_list.tags.pk :
+                                for m in ms :
+                                    if tag.title == f"{m}" :
+                                        f1=True
+                        if f1:
+                            animes_show.append(anime)
     context = {"menus":menus,"menus_options":menus_options,'animes' : animes_show,'tags' : tags_list    }
     return render(request,'main/cpage.html',context)
 #--------------------------------------- weblog --------------------------------------------
