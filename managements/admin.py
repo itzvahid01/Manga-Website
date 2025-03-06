@@ -10,4 +10,5 @@ admin.site.register(Episode)
 admin.site.register(Banner)
 admin.site.register(Post)
 admin.site.register(WantTextBox)
+admin.site.register(Files)
 # Register your models here.

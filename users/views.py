@@ -38,18 +38,24 @@ def anime_page(request,name):
     info = Anime.objects.get(title=name)
     seasons = Season.objects.filter(anime=info.pk)
     episode = Episode.objects.filter(anime=info.pk).order_by('-number')[0::-1]
+    medias = Files.objects.all()
     posts = Post.objects.filter(anime=info.pk).order_by('-lmodified')[:4:-1]
     menus = menu()[0]
     menus_options = menu()[1]
-    context = {"menus":menus,"menus_options":menus_options,"anime" : info,"seasons":seasons,"episodes":episode,"posts":posts}
+    context = {"menus":menus,"menus_options":menus_options,"anime" : info,"seasons":seasons,"episodes":episode,"posts":posts,'medias':medias}
     return render(request,"main/apage.html",context)
 
 @login_required(login_url='login')
-def download(request,anime_name,season_number,episode_number):
+def download(request,anime_name,season_number,episode_number,languge):
     anime = Anime.objects.get(title=anime_name)
     season = Season.objects.get(anime=anime.id,number=season_number)
     episode = Episode.objects.get(anime=anime.id,season=season,number=episode_number)
-    return  FileResponse(open(f"{settings.BASE_DIR}\\media\\{episode.media.name}", 'rb'),filename=episode.media.name,as_attachment=True)
+    medias = episode.media
+    if languge == "fa":
+        media = medias.media_fa
+    else:
+        media = medias.media_en
+    return  FileResponse(open(f"{settings.BASE_DIR}\\media\\{media.name}", 'rb'),filename=media.name,as_attachment=True)
 #------------------------------------------------ auth -----------------------------------------------
 def login_p(request):
     menus = menu()[0]
@@ -108,11 +114,8 @@ def cats_anime(request,cat):
                             for m in ms :
                                 if tag.title == f"{m}" :
                                     f1=True
-                                    print(1)
                                 if tag.title == filter_word :
                                     f2=True
-                                    print(2)
-                        print('---')
                     if f1:
                         if f2:
                             animes_show.append(anime)
@@ -157,8 +160,12 @@ def profile(request):
     password = UserPasswordForm()
     username = UserNameForm()
     email = UserEmailForm()
+    if request.user.is_staff:
+        is_staff = True
+    else:
+        is_staff = False
     if request.method == "POST":
         return redirect('profile')
     else:
-        context = {"menus":menus,"menus_options":menus_options,'email_form':email,'username_form':username,'password_form':password}
+        context = {"menus":menus,"menus_options":menus_options,'email_form':email,'username_form':username,'password_form':password,'is_staff':is_staff}
         return render(request,'user/user.html',context)

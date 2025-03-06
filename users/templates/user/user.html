@@ -30,6 +30,12 @@
                 <h5> رمز عبور </h5>
                 <h6>به دلایل امنیتی نشان داده نمی شود</h6>
             </div>
+            {% if is_staff %}
+            <div class="user-field">
+                <h5> ورود به پنل ادمینی</h5>
+                <button><a href={% url "admin_panel" %}>ورود</a></button>
+            </div>
+            {% endif %}
         </div>
     </div>
 {% endblock content %}

@@ -38,11 +38,14 @@ class Season(m.Model):
     lmodified = m.DateField(auto_now=True,null=True,blank=True)
     def __str__(self):
         return f"Season : {self.number} |{self.anime.title}"
+class Files(m.Model): 
+    media_fa = m.FileField(null=True,blank=True)
+    media_en =  m.FileField(null=True,blank=True)
 class Episode(m.Model): 
+    media = m.ForeignKey(Files,on_delete=m.CASCADE,related_name="media",null=True,blank=True)
     anime = m.ForeignKey(Anime,on_delete=m.CASCADE,related_name="episodes_a",null=True,blank=True)
     number = m.IntegerField(default=0,blank=True,null=True)
     season = m.ForeignKey(Season,on_delete=m.CASCADE,related_name="episodes",null=True,blank=True)
-    media = m.FileField(null=True,blank=True)
     created = m.DateField(auto_now_add=True,null=True,blank=True)
     lmodified = m.DateField(auto_now=True,null=True,blank=True)
     def __str__(self):
@@ -81,4 +84,3 @@ class WantTextBox(m.Model):
     title = m.CharField(max_length=255,null=True,blank=True)
     text = m.TextField(null=True,blank=True)
     img = m.ImageField()
-    color = m.CharField(max_length=255)
