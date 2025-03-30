@@ -14,34 +14,31 @@ def menu():
     return (menus,menus_options)
 # Create your views here.
 def index(request,name=None):
-    lasted_animes = Anime.objects.all().order_by('-id')[:8:-1]
-    most_clicked_animes =Anime.objects.all().order_by('-click')[:8:-1]
-    most_imdb_animes = Anime.objects.all().order_by('-imdb')[:8:-1]
-    lasted_banner = Banner.objects.all().order_by('-pk')[:1]
+    lasted_animes = Anime.objects.all().order_by('-id')[:8:-1] or []
+    most_clicked_animes =Anime.objects.all().order_by('-click')[:8:-1] or []
+    most_imdb_animes = Anime.objects.all().order_by('-imdb')[:8:-1] or []
+    lasted_banner = Banner.objects.first() or None
     tags = TagList.objects.all()
-    menus = menu()[0]
-    menus_options = menu()[1]
+    menus, menus_options = menu()
     cat_shows = [
         {'title': 'جدید ها','address':'news','data':lasted_animes},
         {'title':'محبوب ها','address':'populer','data':most_clicked_animes},
         {'title':'بهترین ها','address':'best','data':most_imdb_animes}
         ]
-    context = {"cat_shows":cat_shows,"menus":menus,"menus_options":menus_options,"imdb_animes" : most_imdb_animes,"click_animes":most_clicked_animes,"lasted_animes" : lasted_animes,"tags": tags,"lasted_banner":lasted_banner[0]}
+    context = {"cat_shows":cat_shows,"menus":menus,"menus_options":menus_options,"imdb_animes" : most_imdb_animes,"click_animes":most_clicked_animes,"lasted_animes" : lasted_animes,"tags": tags,"lasted_banner":lasted_banner}
     return render(request,'main/home.html',context=context)
 def about_us(request):
-    menus = menu()[0]
-    menus_options = menu()[1]
+    menus, menus_options = menu()
     want_text_boxes = WantTextBox.objects.all()
     context = {"menus":menus,"menus_options":menus_options,'want_text_boxes':want_text_boxes}
     return render(request,'main/about_us.html',context=context)
 def anime_page(request,name):
     info = Anime.objects.get(title=name)
     seasons = Season.objects.filter(anime=info.pk)
-    episode = Episode.objects.filter(anime=info.pk).order_by('-number')[0::-1]
+    episode = Episode.objects.filter(anime=info.pk).order_by('-number')[0::-1] or []
     medias = Files.objects.all()
-    posts = Post.objects.filter(anime=info.pk).order_by('-lmodified')[:4:-1]
-    menus = menu()[0]
-    menus_options = menu()[1]
+    posts = Post.objects.filter(anime=info.pk).order_by('-lmodified')[:4:-1] or []
+    menus, menus_options = menu()
     context = {"menus":menus,"menus_options":menus_options,"anime" : info,"seasons":seasons,"episodes":episode,"posts":posts,'medias':medias}
     return render(request,"main/apage.html",context)
 
@@ -58,8 +55,7 @@ def download(request,anime_name,season_number,episode_number,languge):
     return  FileResponse(open(f"{settings.BASE_DIR}\\media\\{media.name}", 'rb'),filename=media.name,as_attachment=True)
 #------------------------------------------------ auth -----------------------------------------------
 def login_p(request):
-    menus = menu()[0]
-    menus_options = menu()[1]
+    menus, menus_options = menu()
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
@@ -71,8 +67,7 @@ def login_p(request):
     context = {"menus":menus,"menus_options":menus_options,'form' : form}
     return render(request,'auth/login.html',context)
 def register_p(request):
-    menus = menu()[0]
-    menus_options = menu()[1]
+    menus, menus_options = menu()
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
         if form.is_valid():
@@ -90,8 +85,7 @@ def logout_view(request):
     return redirect('home')
 #--------------------------------------- categury --------------------------------------
 def cats_anime(request,cat):
-    menus = menu()[0]
-    menus_options = menu()[1] 
+    menus, menus_options = menu()
     animes = Anime.objects.all()
     tags_list = TagList.objects.all()
     tags = Tag.objects.all()
@@ -150,8 +144,7 @@ def cats_anime(request,cat):
 #--------------------------------------- weblog --------------------------------------------
 def weblog_main(request):
     posts = Post.objects.all()
-    menus = menu()[0]
-    menus_options = menu()[1]
+    menus, menus_options = menu()
     context = {"menus":menus,"menus_options":menus_options,'posts' : posts}
     return render(request,'blog/main.html',context)
 def weblog_page(request,anime_name,title):
@@ -164,8 +157,7 @@ def weblog_page(request,anime_name,title):
 #--------------------------------------- profile --------------------------------------------
 @login_required(login_url='login')
 def profile(request):
-    menus = menu()[0]
-    menus_options = menu()[1]
+    menus, menus_options = menu()
     password = UserPasswordForm()
     username = UserNameForm()
     email = UserEmailForm()

@@ -5,6 +5,7 @@
     <script src={% static 'script.js' %}></script>
     <link rel="icon" href={% static '/img/lunika.svg' %} type="image/svg" >
     <meta name="author" content="amirparsa7131@gmail.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="keywords" content="Lunika,مانهوا,مانگا,مانها" >
     <meta name="description" content="لونیکا مرجع دانلود انواع کتاب تصویری زا جمله مانگا ، مانهوا ، مانها، کمیک بوک و غیره با ترجمه ی فارسی و به صورت کاملا رایگان" />
@@ -23,11 +24,11 @@
                     <ul  onmouseleave="menu_options(1,0)" class="menu-of-option" id="manga_menu">
                     {% for mo in menus_options %}
                         {% if mo.menu.pk == menu.pk %}
-                            <a href="{% url menu.family %}{{ menu.address }}/?tag={{ mo.title }}"><li>{{mo.title}} <span><</span> </li></a>
+                            <a href="{% url menu.family %}{{ menu.address }}/?tag={{ mo.title }}"><li>{{mo.title}} <div class="angle-left"></div> </li></a>
                         {% endif %}
                     {% endfor %}
                     </ul>
-                    <a class="menu-option-content-title" href="{% url menu.family %}{{ menu.address }}" ><span>|</span> {{menu.tag}} <span>|</span> </a>
+                    <a class="menu-option-content-title" href="{% url menu.family %}{{ menu.address }}" ><div class="angle-left "></div> {{menu.name_show   }}  </a>
                 </li>
             {% endfor %}
             <li onclick="" class="menu-option"><a  class="menu-option-content-title" href={% url "weblog_main" %} >وبلاگ</a>  </li>

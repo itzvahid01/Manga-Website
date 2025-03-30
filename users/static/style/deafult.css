@@ -165,20 +165,18 @@ span{
 .menu-option::after {
     content: \2039;
 }
-.angle-down {
+.angle-left {
+    display: inline-block;
     position: relative;
     width: 1vw;
+    background-image: url("../img/left_arrow.svg");
     height: 1vw;
-    transform: rotate(90deg);
-    background-image: url("../img/angle_down.svg" );
     background-repeat: no-repeat;
     background-size: 1vw;
     padding-left: 0.5vw;
-    margin-top: 0.5vw;
     transition: all 0.5s;
     border-radius: 50%;
 }
-
 .menu-of-option{
     position: absolute;
     float: right;

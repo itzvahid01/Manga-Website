@@ -1,9 +1,9 @@
 from django import forms
-from managements.models import *
+from .models import *
 from django.contrib.auth.models import User
 class UserRegisterForm(forms.ModelForm):
     class Meta:
-        model=User
+        model=CustomUser
         fields = ['username','password','email']
 class UserLoginForm(forms.ModelForm):
     class Meta:
@@ -11,13 +11,13 @@ class UserLoginForm(forms.ModelForm):
         fields = ['username','password']
 class UserPasswordForm(forms.ModelForm):
     class Meta :
-        model = User
+        model = CustomUser
         fields = ['password']
 class UserNameForm(forms.ModelForm):
     class Meta :
-        model = User
+        model = CustomUser
         fields = ['username']
 class UserEmailForm(forms.ModelForm):
     class Meta :
-        model = User
+        model = CustomUser
         fields = ['email']
