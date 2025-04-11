@@ -2,15 +2,38 @@
 {% load static %}
 {% block meta %}
     <link rel="stylesheet" href={% static 'style/blogpage.css' %}>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 {% endblock meta %}
-{% block title %}
-    {{ post.title }}
-{% endblock title %}
+{% block title %}{{ post.title }}{% endblock title %}
 {% block content %}
-    <div  class="page_banner_anime" style="background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0),rgba(0, 0, 0, 0.8)),url('/media/{{ post.title_img }}');">
+    <div class="page_banner_anime" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8)), url('/media/{{ post.title_img }}')">
         <h1 class="anime_title_banner">{{ post.title }}</h1>
     </div>
-    <div class="weblog_content_box">
-        <p>{{ post.text }}</p>
-    </div>
+    
+    <main class="weblog_content_box">
+        <article class="post-content">
+            {{ post.text|safe }}
+        </article>
+    </main>
+
+    {% if related_posts %}
+    <section class="posts-box">
+        <h2 class="section-title">مطالب مرتبط</h2>
+        <div class="posts">
+            {% for related_post in related_posts %}
+            <a href="{% url 'weblog_page' anime_name=related_post.anime.title title=related_post.title %}" class="post">
+                <img src="/media/{{ related_post.title_img }}" alt="{{ related_post.title }}" class="post-image">
+                <div class="post-content">
+                    <h4>{{ related_post.title }}</h4>
+                    <p class="post-excerpt">{{ related_post.excerpt|truncatechars:120 }}</p>
+                    <div class="post-meta">
+                        <span>{{ related_post.publish_date|date:"Y/m/d" }}</span>
+                        <span>{{ related_post.anime.title }}</span>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
 {% endblock content %}

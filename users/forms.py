@@ -1,23 +1,27 @@
 from django import forms
 from .models import *
 from django.contrib.auth.models import User
-class UserRegisterForm(forms.ModelForm):
+class NewBaseForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.label_suffix = "" 
+class UserRegisterForm(NewBaseForm):
     class Meta:
         model=CustomUser
-        fields = ['username','password','email']
-class UserLoginForm(forms.ModelForm):
+        fields = ['username','email','phone_number','password']
+class UserLoginForm(NewBaseForm):
     class Meta:
         model = User
         fields = ['username','password']
-class UserPasswordForm(forms.ModelForm):
+class UserPasswordForm(NewBaseForm):
     class Meta :
         model = CustomUser
         fields = ['password']
-class UserNameForm(forms.ModelForm):
+class UserNameForm(NewBaseForm):
     class Meta :
         model = CustomUser
         fields = ['username']
-class UserEmailForm(forms.ModelForm):
+class UserEmailForm(NewBaseForm):
     class Meta :
         model = CustomUser
         fields = ['email']

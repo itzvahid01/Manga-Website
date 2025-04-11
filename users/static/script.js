@@ -1,5 +1,4 @@
 window.addEventListener("scroll", bringmenu);
-var lang = 'fa';
 
 function menu() {
         if (document.getElementById("search-input").style.visibility == "hidden") {
@@ -10,15 +9,6 @@ function menu() {
                 document.getElementById("search-input").style.visibility = "hidden";
                 document.getElementById("search-filter").style.visibility = "hidden";
         }
-}
-function show_season(number) {
-        filterSelection("fa");
-        for (let index = 1; index < document.getElementsByClassName("season").length + 1; index++) {
-                document.getElementById(String(index)).style.visibility = "none";
-                document.getElementById("season-title-"+String(index)).style.backgroundColor="#303030";
-        }
-        document.getElementById(number).style.visibility = "visible";
-        document.getElementById("season-title-"+String(number)).style.backgroundColor="#212121";
 }
 // window.onscroll = function() {myFunction()};
 function search(n){
@@ -42,20 +32,6 @@ function myFunction() {
     document.getElementById("up").style.visibility = "visible";
   } else {
     document.getElementById("up").style.visibility = "hidden";
-  }
-}
-function upclick() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-}
-function filterSelection(c) {
-  var x, i;
-  x = document.getElementsByClassName("filterDiv");
-  if (c == "all") c = "";
-  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-  for (i = 0; i < x.length; i++) {
-    w3RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
   }
 }
 
@@ -84,13 +60,81 @@ function w3RemoveClass(element, name) {
   element.className = arr1.join(" ");
 }
 
-// Add active class to the current control button (highlight it)
-var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
+// نمایش فصل انتخاب شده
+// تابع نمایش فصل
+function show_season(number) {
+  // پنهان کردن تمام فصل‌ها
+  var seasons = document.getElementsByClassName("season");
+  for (var i = 0; i < seasons.length; i++) {
+      seasons[i].style.display = "none"; // پنهان کردن فصل
+      seasons[i].classList.remove("active"); // حذف کلاس فعال
+  }
+
+  // غیرفعال کردن عنوان تمام فصل‌ها
+  var seasonTitles = document.getElementsByClassName("season-title");
+  for (var j = 0; j < seasonTitles.length; j++) {
+      seasonTitles[j].classList.remove("active");
+  }
+
+  // نمایش فصل مورد نظر
+  var selectedSeason = document.getElementById(String(number));
+  if (selectedSeason) {
+      selectedSeason.style.display = "block"; // نمایش فصل
+      selectedSeason.classList.add("active"); // اضافه کردن کلاس فعال
+  }
+
+  // فعال کردن عنوان فصل مورد نظر
+  var selectedTitle = document.getElementById("season-title-" + number);
+  if (selectedTitle) {
+      selectedTitle.classList.add("active");
+  }
 }
+
+// تابع فیلتر زبان
+function filterSelection(c) {
+  var x = document.getElementsByClassName("filterDiv");
+  var seasonTitles = document.getElementsByClassName("btn");
+  for (var j = 0; j < seasonTitles.length; j++) {
+      seasonTitles[j].classList.remove("active");
+  }
+  // فعال کردن عنوان فصل مورد نظر
+  var selectedTitle = document.getElementById("btn-" + c);
+  if (selectedTitle) {
+      selectedTitle.classList.add("active");
+  }
+  // اگر "همه" انتخاب شود، تمام عناصر نمایش داده شوند
+  if (c === "all") {
+      for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "inline-block";
+      }
+      return;
+  }
+
+  // مخفی کردن تمام عناصر
+  for (var i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+
+  // نمایش عناصری که شامل کلاس مورد نظر هستند
+  for (var i = 0; i < x.length; i++) {
+      if (x[i].classList.contains(c)) {
+          x[i].style.display = "inline-block";
+          
+      }
+  }
+}
+// فعال کردن دکمه‌های زبان
+document.addEventListener("DOMContentLoaded", function () {
+  var buttons = document.querySelectorAll("#myBtnContainer .btn");
+  buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+          // حذف کلاس active از تمام دکمه‌ها
+          buttons.forEach(function (btn) {
+              btn.classList.remove("active");
+          });
+
+          // اضافه کردن کلاس active به دکمه فعال
+          this.classList.add("active");
+      });
+  });
+});

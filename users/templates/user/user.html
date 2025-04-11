@@ -2,38 +2,37 @@
 {% load static %}
 {% block meta %}
     <link rel="stylesheet" href={% static 'style/profile.css' %}>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 {% endblock meta %}
-{% block title %}
-    {{ user }}
-{% endblock title %}
+{% block title %}{{ user }}{% endblock title %}
 {% block content %}
-    <div style="width:100vw;height:auto;display: flex;justify-content: center;">
+    <div class="profile-container">
         <div class="user-box">
-            <div class="user-field" style="width:78vw;text-align: center;border-right: 0px solid orange;background:none;">
-                <h4>اطلاعات شما</h4>
+            <div class="title-profile">
+                <h4>اطلاعات حساب کاربری</h4>
             </div>
             <div class="user-field">
                 <h5>ایمیل</h5>
                 <h6>{{ user.email }}</h6>
-                <form> {{ email_form.as_div }} </form>
+                <form>{{ email_form.as_div }}</form>
             </div>
             <div class="user-field">
                 <h5>نام کاربری</h5>
                 <h6>{{ user.username }}</h6>
-                <form> {{ username_form.as_div }} </form>
+                <form>{{ username_form.as_div }}</form>
             </div>
             <div class="user-field">
                 <h5>تاریخ عضویت</h5>
-                <h6>{{ user.date_joined }}</h6>
+                <h6>{{ user.date_joined|date:"Y/m/d" }}</h6>
             </div>
             <div class="user-field">
-                <h5> رمز عبور </h5>
-                <h6>به دلایل امنیتی نشان داده نمی شود</h6>
+                <h5>رمز عبور</h5>
+                <h6>به دلایل امنیتی نمایش داده نمی‌شود</h6>
             </div>
             {% if is_staff %}
             <div class="user-field">
-                <h5> ورود به پنل ادمینی</h5>
-                <button><a href={% url "admin_panel" %}>ورود</a></button>
+                <h5>پنل مدیریت</h5>
+                <a href="{% url 'admin_panel' %}" class="profile-btn">ورود به پنل</a>
             </div>
             {% endif %}
         </div>

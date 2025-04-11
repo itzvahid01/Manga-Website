@@ -9,6 +9,7 @@ urlpatterns = [
     path('login/',login_p,name="login"),
     path('register/',register_p,name="register"),
     path('logout/',logout_view,name="logout"),
+    path('verify_code/<str:phone_number>/',verify_phone,name="verify_phone"),
     # ----------------------- profile ------------------------
     path("profile/", profile, name="profile"),
     path("about_us/",about_us,name='about_us'),

@@ -1,101 +1,266 @@
-.card_weblog_box{
-    width: 100%;
-    height: 100%;
+/* blogpage.css - طراحی حرفه‌ای و مدرن */
+:root {
+    --primary: #FF6F61;
+    --primary-hover: #FF8F81;
+    --bg: #121212;
+    --surface: #1E1E1E;
+    --surface-elevated: #252525;
+    --text-primary: #FFFFFF;
+    --text-secondary: #E0E0E0;
+    --text-tertiary: #A0A0A0;
+    --border-radius: 12px;
+    --spacing-unit: 1.5rem;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  /* Reset و تنظیمات پایه */
+  body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* بنر صفحه */
+  .page_banner_anime {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-.card_weblog{
-    background-color: #20202066;
-    border: 0.3vw solid #1b1b1b;
-    border-radius: 0.1vw;
-    padding: 0.5vw;
-    width: 20vw;
-    height: 15vw;
-    transition: 0.5s;
-}
-.card_weblog:hover{
-    background-color: #181818;
-    border: 0.3vw solid #1a1a1a;
-}
-.title_img_weblog{
-    border: 0.1vw solid rgb(53, 53, 53);
-    box-shadow: 0px 0vw 1vw 0.1vw #161616;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 4rem 2rem;
     background-size: cover;
-    width: 20vw;
-    height: 10vw;
-    filter: grayscale(0.3);
-    background-repeat: no-repeat;
-    transition: 0.3s;
-}
-.card_weblog:hover .title_img_weblog {
-    cursor: pointer;
-    filter: grayscale(0);
-}
-.title_weblog_card {
-    font-size: 1.2vw;
-    color: rgb(202, 202, 202);
-    float: right;
-    transition: 0.5s;
-}
-.card_weblog:hover .title_weblog_card{
-    color: white;
-}
-.weblog_content_box{
-    display: inline-block;
-    padding: 1vw;
-    text-align: right;
-    width: 92vw;
-    margin: 5vw 3.2vw;
-    margin-bottom: 0vw;
-    border: 0.2vw solid rgb(19, 19, 19,0.2);
-    background-color: rgba(43, 43, 43,0.5);
-}
-
-.posts-box{
-    width: 100%;
-    height: auto;
+    background-position: center;
+    isolation: isolate;
+  }
+  
+  .page_banner_anime::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, var(--bg) 90%);
+    z-index: -1;
+  }
+  
+  .anime_title_banner {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
     text-align: center;
-    background-color: #2b2b2b;
-    margin-top: 5vw;
-}
-.posts{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    padding-top: 5vw;
-    padding-bottom: 2.5vw;
-    height: auto;
-    background-color: #2b2b2b;
-}
-.post{
-    width: 17vw;
-    height: 17vw;
-    background-color: #272727;
-    border: 0.2vw solid #252525;
-    border-radius: 1vw;
-    transition: 0.5s;
-}
-.post:hover{
-    cursor: pointer;
-}
-.post-image{
-    margin-top: 1vw;
-    width: 15vw;
-    height: 6vw;
-    border: 0.2vw solid rgba(0, 0, 0,0.1);
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: 0.5s;
-}
-.post h4 {
-    font-size: 0.9vw;
-    color: #b8b8b8;
-    transition: 0.5s;
-}
-.post:hover h4{
     color: white;
-}
-.post:hover .post-image {
-    filter: contrast(1.15);
-}
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  /* محتوای اصلی وبلاگ */
+  .weblog_content_box {
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    margin: 3rem auto;
+    width: 80%;
+    max-width: 800px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow);
+    line-height: 1.8;
+  }
+  
+  .weblog_content_box p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* کارت‌های وبلاگ */
+  .card_weblog_box {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-unit);
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .card_weblog {
+    background: var(--surface-elevated);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .card_weblog:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(255, 111, 97, 0.15);
+    border-color: rgba(255, 111, 97, 0.3);
+  }
+  
+  .title_img_weblog {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    filter: brightness(0.8);
+    transition: var(--transition);
+  }
+  
+  .card_weblog:hover .title_img_weblog {
+    filter: brightness(1);
+  }
+  
+  .card_weblog_content {
+    padding: 1.8rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .title_weblog_card {
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    transition: var(--transition);
+    font-weight: 600;
+  }
+  
+  .card_weblog:hover .title_weblog_card {
+    color: var(--primary);
+  }
+  
+  .weblog_meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* بخش پست‌های مرتبط */
+  .posts-box {
+    background: var(--surface);
+    padding: 4rem 0;
+    margin-top: 4rem;
+  }
+  
+  .posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-unit);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .post {
+    background: var(--surface-elevated);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 111, 97, 0.2);
+  }
+  
+  .post-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+  
+  .post:hover .post-image {
+    filter: contrast(1.1) brightness(1.05);
+  }
+  
+  .post-content {
+    padding: 1.5rem;
+  }
+  
+  .post h4 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    transition: var(--transition);
+  }
+  
+  .post:hover h4 {
+    color: var(--primary);
+  }
+  
+  .post-excerpt {
+    color: var(--text-tertiary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-tertiary);
+    font-size: 0.85rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* رسپانسیو */
+  @media (max-width: 768px) {
+    .page_banner_anime {
+      height: 50vh;
+      padding: 2rem 1rem;
+    }
+    
+    .weblog_content_box {
+      width: 95%;
+      padding: 1.5rem;
+    }
+    
+    .card_weblog_box,
+    .posts {
+      grid-template-columns: 1fr;
+      padding: 1rem;
+    }
+    
+    .title_img_weblog {
+      height: 160px;
+    }
+  }
+  
+  /* انیمیشن‌ها */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .card_weblog,
+  .post {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .card_weblog:nth-child(1) { animation-delay: 0.1s; }
+  .card_weblog:nth-child(2) { animation-delay: 0.2s; }
+  .card_weblog:nth-child(3) { animation-delay: 0.3s; }
+  .post:nth-child(1) { animation-delay: 0.1s; }
+  .post:nth-child(2) { animation-delay: 0.2s; }
+  .post:nth-child(3) { animation-delay: 0.3s; }

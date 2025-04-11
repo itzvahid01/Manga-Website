@@ -1,8 +1,8 @@
 from django.db import models as m
-from main import settings
+from django.conf import settings
 from django.core.validators import MaxValueValidator,MinValueValidator
 import os
-def manga_upload_path(instance, filename):
+def manga_upload_path_banner_titleimg(instance, filename):
     total_mangas = Anime.objects.count()
     folder_number = (total_mangas // 100) + 1
 
@@ -12,9 +12,9 @@ def manga_upload_path(instance, filename):
 # Create your models here.
 class Anime(m.Model):
     title = m.CharField(max_length=255,unique=True)
-    title_img = m.ImageField(null=True,blank=True,upload_to=manga_upload_path)
+    title_img = m.ImageField(null=True,blank=True,upload_to=manga_upload_path_banner_titleimg)
     description = m.TextField(null=True,blank=True)
-    banner = m.ImageField(null=True,blank=True,upload_to=manga_upload_path)
+    banner = m.ImageField(null=True,blank=True,upload_to=manga_upload_path_banner_titleimg)
     click = m.IntegerField(default=0,null=True,blank=True)
     folder_number = m.IntegerField(default=1)
     imdb = m.FloatField(default=0, help_text='value 0 to 10', validators=[MaxValueValidator(10),
@@ -51,18 +51,38 @@ class Season(m.Model):
     lmodified = m.DateField(auto_now=True,null=True,blank=True)
     def __str__(self):
         return f"Season : {self.number} |{self.anime.title}"
+    def save(self, *args, **kwargs):
+        total_mangas = Anime.objects.count()
+        self.anime.folder_number = (total_mangas // 100) + 1
+        manga_dir = os.path.join(settings.MEDIA_ROOT, 'animes', str(self.anime.folder_number), str(self.anime.title),str(self.number))
+        os.makedirs(manga_dir, exist_ok=True)
+        super().save(*args, **kwargs)
 class Episode(m.Model): 
     anime = m.ForeignKey(Anime,on_delete=m.CASCADE,related_name="episodes_a",null=True,blank=True)
-    number = m.IntegerField(default=0,blank=True,null=True)
+    number = m.IntegerField(default=0,blank=True,null=True)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
     season = m.ForeignKey(Season,on_delete=m.CASCADE,related_name="episodes",null=True,blank=True)
     created = m.DateField(auto_now_add=True,null=True,blank=True)
     lmodified = m.DateField(auto_now=True,null=True,blank=True)
     def __str__(self):
         return f"Episode : {self.number} | {self.season} | {self.season.number }"
+    def save(self, *args, **kwargs):
+        total_mangas = Anime.objects.count()
+        self.season.anime.folder_number = (total_mangas // 100) + 1
+        manga_dir = os.path.join(settings.MEDIA_ROOT, 'animes', str(self.season.anime.folder_number), str(self.season.anime.title),str(self.season.number),str(self.number))
+        os.makedirs(manga_dir, exist_ok=True)
+        super().save(*args, **kwargs)
+def manga_upload_path_files(instance, filename):
+    return f"animes/{instance.episode.anime.folder_number}/{instance.episode.anime.title}/{instance.episode.season.number}/{instance.episode.number}/{filename}"
 class Files(m.Model): 
     episode = m.ForeignKey(Episode,on_delete=m.CASCADE,related_name="media",null=True,blank=True)
-    media_fa = m.FileField(null=True,blank=True,upload_to=manga_upload_path)
-    media_en =  m.FileField(null=True,blank=True,upload_to=manga_upload_path)
+    media_fa = m.FileField(null=True,blank=True,upload_to=manga_upload_path_files)
+    media_en =  m.FileField(null=True,blank=True,upload_to=manga_upload_path_files)
+    def save(self, *args, **kwargs):
+        total_mangas = Anime.objects.count()
+        self.episode.anime.folder_number = (total_mangas // 100) + 1
+        super().save(*args, **kwargs)
+class Product(m.Model):
+    anime = m.ForeignKey(Anime,on_delete=m.CASCADE,related_name="product",null=True,blank=True)            
 
 class Banner(m.Model):
     anime = m.ForeignKey(Anime,on_delete=m.CASCADE,related_name='ad',null=True,blank=True)
@@ -76,6 +96,9 @@ class Post(m.Model):
     title = m.CharField(max_length=255,null=True,blank=True)
     title_img = m.ImageField(null=True,blank=True)
     text = m.TextField(null=True,blank=True)
+    grade = m.FloatField(default=0, help_text='value 0 to 10', validators=[MaxValueValidator(10),
+        MinValueValidator(0)])
+    click = m.IntegerField(default=0,null=True,blank=True)
     created = m.DateField(auto_now_add=True,null=True,blank=True)
     lmodified = m.DateField(auto_now=True,null=True,blank=True)
     def __str__(self):

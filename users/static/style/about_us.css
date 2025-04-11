@@ -1,29 +1,68 @@
+:root {
+    --primary: #FF6F61;
+    --primary-hover: #FF8F81;
+    --bg: #121212;
+    --surface: #1E1E1E;
+    --surface-elevated: #252525;
+    --text-primary: #FFFFFF;
+    --text-secondary: #E0E0E0;
+    --text-tertiary: #A0A0A0;
+    --border-radius: 8px;
+    --spacing-unit: 1rem;
+  }
+  
 .main-box{
     display: flex;
     justify-content: right;
     min-height: 30svw;
 }
 .want-box{
+    box-shadow: 0px 0px 5px 1px var(--surface-elevated);  
+    border-radius: 1vw;
     color: white;
-    border-bottom-left-radius: 0.1vw;
-    border-top-left-radius: 0.1vw;
-    background-color: #242424;
-    height: 10vw;
+    border-bottom-left-radius: 0.5vw;
+    border-top-left-radius: 0.5vw;
+    border-right: 0.3vw solid var(--text-tertiary);
+    background-color: rgba(37, 37, 37,0.5);
+    height: 12vw;
     width: 44.7vw;
     margin-right: 5vw;
+    overflow: hidden;
+    transition: 0.5s;
+    cursor: pointer;
 }
-.want-box-img{
-    border-right: 0.3vw solid #d55e00;
+.want-box:hover{
+    box-shadow: 0px 0px 0px 0px var(--surface);  
+    border-bottom-left-radius: 1vw;
+    border-top-left-radius: 1vw;
+    border-right: 0.3vw solid var(--primary);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.want-box-img{  
+    box-shadow: 0px 0px 10px 2px var(--bg);     
     float: right;
     margin-left:1vw;
+    border-radius: 1vw;  
     border-bottom-right-radius : 0.3vw;
     border-top-right-radius: 0.3vw;
-    height: 10vw;
-    width: 10vw;
+    height: 12vw;
+    width: 12vw;
 }
 .want-img{
-    height: 10vw;
-    width: 10vw;    
+    height: 12vw;
+    width: 12vw;    
+    border-radius: 1vw;  
     background-repeat: no-repeat;
     background-size: cover;   
 }
@@ -33,7 +72,27 @@
     color: white;
 }
 .want-text{
+    display: block;
+    position: relative;
+    width: 34.2vw;  
+    word-wrap: break-word; 
     text-align: right;
     font-size: 1vw;
     color: rgb(163, 163, 163);
+}
+.want-box:hover .want-text{
+    color: white;
+}
+.help-us-btn{
+    display: block;
+    text-align: center;
+    padding: 1vw;
+    height: 5vw;
+    position: absolute;
+    border-radius: var(--border-radius);
+    transition: 0.5s;
+}
+.help-us-btn:hover{
+    transform: scale(1.05);
+    color: var(--primary);
 }

@@ -1,0 +1,31 @@
+{% extends "deafult.html" %}
+{% load static %}
+{% block meta %}
+    <link rel="stylesheet" href={% static 'style/auth.css' %}>
+{% endblock meta %}
+{% block title %}
+    اعتبارسنجی شماره موبایل
+{% endblock title %}
+{% block content %}
+<form class="bg-auth-box" method="POST">
+    {% csrf_token %}
+    <div class="auth_form">
+        <h2 class="auth_title">تأیید شماره موبایل</h2>
+        
+        <div class="auth_field">
+            <label>کد تأیید ۶ رقمی</label>
+            <div class="otp-container">
+                <input type="text" name="code" maxlength="6" class="otp-input" autofocus>
+            </div>
+            <span class="helptext">کد ارسال شده به شماره ۰۹۱۲****۱۲۳ را وارد کنید</span>
+        </div>
+
+        <button type="submit" class="submit">تأیید کد</button>
+        
+        <div class="register_box">
+            <span class="helptext">کد را دریافت نکردید؟</span>
+            <a href="#" class="helptext" style="color: #FF6F61; margin-right: 5px;">ارسال مجدد کد</a>
+        </div>
+    </div>
+</form>
+{% endblock content %}

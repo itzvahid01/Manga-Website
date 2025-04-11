@@ -1,240 +1,445 @@
-* {
-    color: white;
-    font-size: 1vw;
-}
-.page_banner_anime { 
+  :root {
+    --primary: #FF6F61;
+    --primary-hover: #FF8F81;
+    --bg: #121212;
+    --surface: #1E1E1E;
+    --surface-elevated: #252525;
+    --text-primary: #FFFFFF;
+    --text-secondary: #E0E0E0;
+    --text-tertiary: #A0A0A0;
+    --border-radius: 1vw;
+    --spacing-unit: 1rem;
+  }
+
+  /* Reset و استایل‌های پایه */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem; /* استفاده از واحدهای نسبی به جای vw */
+    scroll-behavior: smooth;
+  }
+
+  /* بنر صفحه */
+  .page_banner_anime {
     user-select: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height:40vw;
-    background-repeat: no-repeat;
-    background-size: cover;
-    box-shadow: 0px 0px 1vw 0.1vw black;
-}
-.anime_title_banner{
-    display: flex;
-    position: relative;
-    color: #161616;
-    text-shadow:0.2vw 0 #bbbbbb, -0.2vw 0 #e0e0e0, 0 0.2vw #adadad, 0 -0.2vw #b3b3b3,
-    1px 1px #fff, -0.1vw -0.1vw #fff, 0.1vw -0.1vw #fff, -0.1vw 0.1vw #fff;
-    font-size: 7vw;
-    margin: 0px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-.season {
-    z-index: 1;
-    visibility: hidden;
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 17vw;
-    margin-top: 1vw;
-}
-.season-title-list{
-    display: flex;
-    flex-wrap: wrap;
-    justify-items: end;
-    justify-self: end;
-    text-align: end;
-    align-items: end;
-    align-content: end;
-    width: 100%;
-    height: fit-content;
-    background-color: rgba(78, 78, 78,0.5);
-    border: 0.1vw solid rgba(78, 78, 78,0.8);
-    padding: 1vw;
-}
-.season-title{
-    font-size: 1.3vw;
-    display: flex;
-    color: rgb(201, 201, 201);
-    justify-content: center;
-    align-items: center;
-    margin: 0.1vw;
-    padding: 0.5vw;
-    width: 8.6%;
-    height: 2vw;
-    background-color: #303030;
-    font-weight: 900;
-    transition: 0.5s;
-}
-.season-title:hover{
-    cursor: pointer;
-    color: white;
-}
-.download {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: rgba(49, 49, 49,0.5);
-    border: 0.1vw solid rgba(49, 49, 49,0.8);
-    padding: 1vw;
-    border-radius: 0.5vw;
-    width: 90vw;
-    margin-right: 0vw;
-    margin-top: 10vw;
-    margin-left: 4vw;
-    float: right;
-}
-.b-img {
-    border-radius: 0.25vw;
-    box-shadow: 0px 0px 5px 1px black;
-    width: 16vw;
-    height: 24vw;
-    float: right;
-    margin-top: 5vw;
-}
-.posts-box{
-    width: 100%;
-    height: auto;
-    text-align: center;
-    background-color: #2b2b2b;
-    margin-top: 5vw;
-}
-.posts{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    padding-top: 5vw;
-    padding-bottom: 2.5vw;
-    height: auto;
-    background-color: #2b2b2b;
-}
-.post{
-    width: 21vw;
-    height: 12vw;
-    background-color: #272727;
-    border: 0.2vw solid #252525;
-    border-radius: 0.1vw;
-    transition: 0.5s;
-}
-.post:hover{
-    cursor: pointer;
-}
-.post-image{
-    margin-top: 0.25vw;
-    width: 20vw;
-    height: 8vw;
-    border: 0.2vw solid rgba(0, 0, 0,0.1);
-    border-radius: 0.1vw;
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: 0.5s;
-}
-.post h4 {
-    margin-right: 1vw;
-    float: right;
-    font-size: 0.9vw;
-    color: #b8b8b8;
-    transition: 0.5s;
-}
-.post:hover h4{
-    color: white;
-}
-.post:hover .post-image {
-    filter: contrast(1.075);
-}
-.about-anime { 
-    display: flex;
-    background-color: rgba(49, 49, 49,0.5);
-    width:60vw;
-    margin-top:15.5vw;
-    border: 0.1vw solid rgba(49, 49, 49,0.8);
-    padding: 1vw;
-    height: 10vw;
-    border-radius: 0.5vw;
-    margin-right: 2vw;
-    margin-left: 4vw;
-    float: right;
-}
-.season-list {
-    margin-top: 2vw;
-    width: 100%;
-    min-height: 20vw;
-    background-color: #2b2b2b;
-}
-.season-title-d {
-    display: flex;
-    justify-content: center;
-}
-#episodes{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    width: 79vw;
-    margin-top: 2vw;
-    margin-right:0vw;
-    float: right;
-    min-height: 15vw;
-}
-.lang-box{
-    width: 100%;
-    height: 2.5vw;
-    margin-top: 2vw;
-    margin-right: 10vw;
     display: flex;
     justify-content: right;
     align-items: center;
-}
-.slang{
-    font-size: 1.2vw;
-    margin-left: 1vw;
-}
-.lang-list{
-    color: #b8b8b8;
-    cursor: pointer;
-    background-color: #2e2e2e;
-    border: 0.1vw solid rgb(36, 36, 36);
-}
-.lang-list:focus{
-    outline: none;
-}
-  
-.filterDiv {
-    font-size: 1.1vw;
-    float: left;
-    background-color: #353535;
-    border: 0.1vw solid #252525;
-    color: rgb(202, 202, 202);
-    width: 10vw;
-    line-height: 5vw;
-    text-align: center;
-    margin: 1vw;
-    display: none;
-    transition: 0.5s;
+    height: 30vw; /* استفاده از vh برای سازگاری بهتر */
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
   }
-  .filterDiv:hover{
-    color: white;
-    background-color: #272727;
-  }
-.show {
-    display: block;
-}
-  
-  .container {
-    margin-top: 1vw;
+  .anime_title_banner {
+    border-bottom: 0.2em solid var(--primarys); 
     overflow: hidden;
+    border-right: .1em solid transparent;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: 
+    typing 3.5s forwards, /* اضافه کردن forwards */
+    blink-caret .75s 5 forwards; /* محدود کردن به 5 بار تکرار و اضافه کردن forwards */
+  width: 0; /* مقدار اولیه */
+}
+.anime_title_banner-box{
+  display: 100%;
+}
+@keyframes typing {
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--primary); }
+}
+.anime_title_banner:hover {
+  cursor: pointer;
+  text-shadow: 
+    0 0 5px var(--bg),
+    0 0 6px var(--bg),
+    0 0 7px var(--bg),
+    0 0 8px var(--bg);
+  color: #fff;
+}
+.b-img {
+  margin-right: 10vw;
+  /* ابعاد و موقعیت */
+  width: 15vw;
+  height: 25vw;
+  display: block;
+  position: relative;
+  /* ظاهر و زیبایی */
+  border-radius: var(--border-radius);
+  border: 0.2vw solid var(--surface-elevated);
+  object-fit: cover;
+  background-size: cover;
+  z-index: 0;
+  background-repeat: no-repeat;
+  animation: fadeup;
+  animation-duration: 3s;
+  animation-direction: 2;
+  animation-fill-mode: forwards;
+  filter: contrast(0.9);
+}
+.b-img:hover{
+  cursor: pointer;
+  filter: contrast(1);
+  border: 0.2vw solid var(--bg);  
+}
+
+.anime_title_banner {
+  margin-right: 20vw;
+  color: white;
+  font-size: clamp(2.5rem, 8vw, 6rem); /* تایپوگرافی واکنش‌گرا */
+  text-shadow: 
+    2px 2px 4px rgba(0,0,0,0.8),
+    0 0 10px rgba(255,255,255,0.3);
+  z-index: 2;
+  text-align: center;
+  padding: 0 1rem;
+}
+.main-anime-box{
+  width:vw;
+  display:flex;
+  margin-right:2vw; 
+}
+.inital-link{
+  text-align: center;
+}
+
+.dark-vertical-menu nav {
+  position: fixed;
+  width: 8vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.dark-vertical-menu ul {
+  list-style: none;
+  padding: 1vw 0;
+  margin: 0;
+}
+
+.dark-vertical-menu nav li{
+  background-color: #121212;
+  border-radius: var(--border-radius);
+  border: 0.1vw solid var(--surface-elevated);
+  margin: 0.25vw 0;
+  position: relative;
+  animation: 
+  fadeup 3s forwards; 
+}
+@keyframes fadeup{
+  from{
+    transform: translateY(1vw);
   }
-  
-  /* Style the buttons */
-  .btn {
-    border: none;
-    outline: none;
-    padding: 1.2vw 1.6vw;
-    background-color: #1f1f1f;
-    cursor: pointer;
-    transition: 0.5s;
+  to{
+    transform: translateY(-1vw);
   }
-  
-  .btn:hover {
-    background-color: #3b3b3b;
+}
+.dark-vertical-menu nav li:hover{
+  background-color: var(--primary);
+}
+.dark-vertical-menu a {
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 10px 12px;
+  font-size: 13px;
+  transition: all var(--transition-speed) ease;
+}
+
+.menu-icon{
+  width: 0vw;
+  height: 0vw;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: 
+    show-inline-menu 1s forwards; /* محدود کردن به 5 بار تکرار و اضافه کردن forwards */
+  width: 0; /* مقدار اولیه */ 
+}
+
+@keyframes  show-inline-menu{
+  from{width: 0vw;height: 0vw;}
+  to{
+    width: 1vw;height: 1vw;
   }
-  
-  .btn.active {
-    background-color: #666;
-    color: white;
-  }
-  span{
-    font-size: 0.7vw;
-  }
+}
+/* استایل بخش خلاصه */
+.about-anime {
+  left: 10vw;
+  width: 80%;
+  display: flex;
+  text-align: right;  
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin: 2rem 0;
+  border-right: 0.5vw solid var(--primary-hover);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+
+.about-anime h4 {
+  font-size: 1.5rem;
+  margin-left: 5vw;
+  color: var(--primary-hover);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1vw solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  display: inline-block;
+}
+
+.about-anime h4::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--primary);
+  transition: 1s all;
+}
+
+.about-anime p {
+  color: var(--text-tertiary);
+  line-height: 1.8;
+  text-align: right;
+  font-size: 1rem;
+  position: relative;
+  padding: 0.5rem 0;
+}
+.about-anime:hover  p{
+  color: var(--text-primary);
+}
+.about-anime:hover  h4{
+  color: var(--primary);
+}
+/* انیمیشن هنگام هاور */
+.about-anime:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  border-right: 0.5vw solid var(--primary);
+  background-color: #1E1E1E;
+}
+.about-anime:hover  h4::after{
+  width: 100%;
+}
+/* تنظیمات پایه برای راست‌چین بودن سایت */
+
+/* عنوان فصل‌ها */
+.season-title-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  background: rgba(78, 78, 78, 0.3);
+  border: 1px solid rgba(78, 78, 78, 0.5);
+  padding: 1.5rem;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.season-title {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  padding: 0.75rem;
+  background: var(--surface);
+  border-radius: 6px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.season-title:hover {
+  color: var(--primary);
+  background: var(--surface-elevated);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.season-title.active {
+  background: var(--surface-elevated);
+  color: var(--primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* بخش دانلود و اطلاعات */
+.download {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: rgba(49, 49, 49, 0.3);
+  border: 1px solid rgba(49, 49, 49, 0.5);
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 1200px;
+  margin: 3rem auto;
+  backdrop-filter: blur(10px);
+}
+
+.btn-summery {
+  background: rgba(37, 37, 37, 0.5);
+  cursor: pointer;
+  padding: 0.5vw;
+  border: 0.1vw solid var(--surface);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  position: relative;
+  display: inline-block;
+  margin-inline-start: auto; /* برای راست‌چین */
+  margin-top: 2rem;
+}
+
+/* بخش‌های مقصد */
+.section {
+  padding: 80px 20px;
+  min-height: 400px;
+  text-align: right;
+}
+
+/* لیست پست‌ها */
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.post {
+  background: var(--surface-elevated);
+  border: 1px solid rgba(37, 37, 37, 0.5);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  text-align: right;
+}
+
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 111, 97, 0.2);
+  border-color: var(--primary);
+}
+
+.post-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.post:hover .post-image {
+  filter: contrast(1.1) brightness(1.1);
+}
+
+.post h4 {
+  padding: 1rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.post:hover h4 {
+  color: var(--primary);
+}
+
+/* بخش اپیزودها */
+.season-list {
+  margin-top: 3rem;
+  width: 100%;
+  padding: 2rem 0;
+  background: var(--surface);
+  text-align: right;
+}
+
+#episodes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+.filterDiv {
+  display: inline-block;
+  font-size: 0.9rem;
+  background: var(--surface-elevated);
+  border: 1px solid var(--surface);
+  color: var(--text-secondary);
+  padding: 1rem 0.5rem;
+  text-align: center;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.filterDiv:hover {
+  color: var(--primary);
+  background: var(--surface);
+  transform: scale(1.03);
+}
+
+/* فیلترها و دکمه‌ها */
+.lang-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+.slang {
+  font-size: 1rem;
+}
+
+.lang-list {
+  background: var(--surface-elevated);
+  border: 1px solid var(--surface);
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lang-list:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.btn {
+  border: none;
+  padding: 0.75rem 1.25rem;
+  background: var(--surface-elevated);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--surface);
+  color: var(--primary);
+}
+
+.btn.active {
+  background: var(--primary);
+  color: white;
+}

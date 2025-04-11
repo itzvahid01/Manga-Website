@@ -1,4 +1,7 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
     <title>لونیکا |  {% block title %}مرجع دانلود  رایگان کتاب های تصویری{% endblock title %}</title>
     {% block meta %}{% endblock meta %}
     <link rel="stylesheet" href={% static 'style/deafult.css' %}>
@@ -9,14 +12,15 @@
 
     <meta name="keywords" content="Lunika,مانهوا,مانگا,مانها" >
     <meta name="description" content="لونیکا مرجع دانلود انواع کتاب تصویری زا جمله مانگا ، مانهوا ، مانها، کمیک بوک و غیره با ترجمه ی فارسی و به صورت کاملا رایگان" />
-<div style="height:5vw;width:100vw;z-index: 0;" ></div>
+</head>
+    <body dir="ltr">  
 <div id="search_page" >
     <input class="search" type="search" placeholder="در دنیای کمیک های مصور جتسجو کنید "></input>
 </div>
 <header >
     <ul id="menu">
         <img title="Lunika Studio" src={% static '/img/lunika.svg' %} alt="Lunika" style="width: 2.5vw;float: right;margin-top: 0.7vw;margin-right:2vw">
-        <hr style="float: right;height:2vw;margin-left: 10vw;margin-right: 2.5vw;margin-top:2vh;">
+        <hr style="float: right;height:2vw;margin-left: 10vw;margin-right: 2.5vw;margin-top:0.1vw;">
         <nav>
             <li onclick="" class="menu-option"><a  class="menu-option-content-title" href="{% url 'home' %}" >صفحه اصلی </a> </li>
             {% for menu in menus %}
@@ -24,7 +28,7 @@
                     <ul  onmouseleave="menu_options(1,0)" class="menu-of-option" id="manga_menu">
                     {% for mo in menus_options %}
                         {% if mo.menu.pk == menu.pk %}
-                            <a href="{% url menu.family %}{{ menu.address }}/?tag={{ mo.title }}"><li>{{mo.title}} <div class="angle-left"></div> </li></a>
+                            <a href="{% url menu.family %}{{ menu.address }}/?tag={{ mo.title }}"><li>{{mo.title}}</li></a>
                         {% endif %}
                     {% endfor %}
                     </ul>
@@ -45,45 +49,67 @@
     </ul>
 </header>
 {% block content %}{% endblock content %}
-<footer>
-    <div style="height:15vw;width: 30vw;float: right;margin-bottom: 0px;">
-        <h4 style="font-size: 2vw;float: right;margin-top: 0.75vw;margin-right: 1vw;color: #f5f5f5e6;margin-bottom: 0px;">درباره ی ما</h4>
-        <br \><br \><br \>
-        <p style="font-size: 1vw;color: #ececece6;text-align: right; margin-right: 1vw;width: 30vw;float: right;">سلام تیم ما یک تیم تازه تاسیس هست که هدفش خشنود کردن شما و پخش این مانگا ها ، مانهوا و مانهایی که شما می خواهید برای شما و استفاده راحت و دانلود شما است تا بتوانید از خواندن آنها لذت ببرید</p>
-    </div>
-    <div style="height: 15vw;width: 30vw;float: right;">
-        <div style="height: 15vw;width: 100%;float: right;text-align: center;">
-            <ul>
-                <h4 class="footer-menu-title">دسترسی سریع</h4>
-                <hr style="width: 5vw;border-color: #ff7b00;">
-                <li class="footer-menu">مانگا</li>
-                <li class="footer-menu">مانهوا</li>
-                <li class="footer-menu">مانها</li>
-            </ul>
+<footer class="site-footer">
+    <div class="footer-grid">
+      <!-- بخش درباره ما -->
+      <div class="footer-section">
+        <h4 class="footer-heading">درباره ما</h4>
+        <div class="divider-right"></div>
+        <p class="footer-text">
+          تیم لونیکا با هدف ارائه بهترین تجربه مطالعه فعالیت می‌کند.
+        </p>
+      </div>
+  
+      <!-- بخش لینک‌ها -->
+      <div class="footer-section">
+        <h4 class="footer-heading">دسترسی سریع</h4>
+        <div class="divider-right"></div>
+        <ul class="footer-nav">
+          <li>
+            <a href={% url "categury" cat='manga' %} class="footer-link">
+                <img src="{% static 'img/footer/dott.svg' %}" class="nav-icon" alt="">
+              <span>مانگا</span>
+            </a>
+          </li>
+          <li>
+            <a href={% url "categury" cat='manhwa' %} class="footer-link">
+                <img src="{% static 'img/footer/dott.svg' %}" class="nav-icon" alt="">
+              <span>مانهوا</span>
+            </a>
+          </li>
+          <li>
+            <a href={% url "categury" cat='manha' %} class="footer-link">
+              <img src="{% static 'img/footer/dott.svg' %}" class="nav-icon" alt="">
+              <span>مانها</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+  
+      <!-- بخش تماس -->
+      <div class="footer-section">
+        <h4 class="footer-heading">ارتباط با ما</h4>
+        <div class="divider-right"></div>
+        <div class="contact-items">
+          <div class="contact-item">
+            <img src="{% static 'img/footer/phone.svg' %}" class="contact-icon" alt="">
+            <span>۴۴ ۴۲ ۸۲ ۲۴</span>
+          </div>
+          <div class="contact-item">
+            <img src="{% static 'img/footer/email.svg' %}" class="contact-icon" alt="">
+            <span>amirparsa7131@gmail.com</span>
+          </div>
         </div>
-    </div>
-    <div style="height: 15vw;width: 20vw;">
-        <h4 style="text-align:center;color: #f5f5f5e6; margin-top: 1vw;">ارتباط با ما</h4>
-        <div style="height: 8vw;margin-top:3vw;">
-             <address style="color: rgb(189, 189, 189);font-style: normal;font-size: 0.9vw;height:1vw">
-                <ul style="list-style-type: none;margin:0px,height:10vw">
-                    <li title="work number">
-                        <h4>Phone : 44 42 82 24</h4>
-                    </li>
-                    <li title="email addres">
-                        <h4>Email : amirparsa7131@gmail.com</h4>
-                    </li>
-                    <li title="social media">
-                        <nav style="
-                            display: flex;justify-content: space-evenly;height: 5vw;
-                            align-items: center;">
-                            <img class="logo" src={% static 'img/sm-logo/instagram.svg' %} alt="instagram" title="instagram">
-                            <img class="logo" src={% static 'img/sm-logo/telegram.svg' %} alt="telegram" title="telegram">
-                            <img class="logo" src={% static 'img/sm-logo/facebook.svg' %} alt="facebook" title="facebook">
-                        </nav>
-                    </li>
-                </ul>
-             </address>
+        <div class="social-media">
+          <a href="https://www.instagram.com/lunika.manga/" target="_blank"><img src="{% static 'img/sm-logo/instagram.svg' %}" alt="اینستاگرام"></a>
+          <a href="https://t.me/mangaup" target="_blank"><img src="{% static 'img/sm-logo/telegram.svg' %}" href="" alt="تلگرام"></a>
+          <a href="#" target="_blank"><img src="{% static 'img/sm-logo/facebook.svg' %}" alt="فیسبوک"></a>
         </div>
+      </div>
     </div>
-</footer>
+  
+    <div class="copyright">
+      <p>© <span class="year">۱۴۰۲</span> لونیکا. تمام حقوق محفوظ است.</p>
+    </div>
+  </footer>
+</body>
